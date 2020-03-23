@@ -23,6 +23,7 @@ echo "		|   \  \   |   /  /    |"
 echo "		\    \  \  |  /  /     /"
 echo "		 \   /   ~~~~~   \    / "
 
+
 if [ $# -eq 0 ] ; 
 then
 	echo "Usage ./hex_to_dec.sh <hexadecimal string> <image_path>" ;
