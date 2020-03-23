@@ -19,6 +19,7 @@ brname=$(brctl show | grep -o 'kt-[a-zA-Z0-9]*')
 # Add the virtual interface veth1 to the bridge
 brctl addif $brname veth1
 
+# Ask IP/PREFIX
 read -p "IP address: " IP
 read -p "Netmask: " NETMASK
 
