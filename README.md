@@ -1,2 +1,12 @@
 # Scripts
-Random scripts I create when I don't know what to do.
+
+            _____ _____ ______ ___________  _____ 
+           /  ___/  __ \| ___ \_   _| ___ \/  ___|
+           \ `--.| /  \/| |_/ / | | | |_/ /\ `--. 
+            `--. \ |    |    /  | | |  __/  `--. \
+           /\__/ / \__/\| |\ \ _| |_| |    /\__/ /
+           \____/ \____/\_| \_|\___/\_|    \____/ 
+            ..I do to lose time Instead of study.
+           
+           
+@Author Nicola Bottura
