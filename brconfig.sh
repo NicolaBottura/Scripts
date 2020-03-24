@@ -8,7 +8,7 @@ echo -e "\n"
 ip addr flush dev veth0 scope global
 
 # Create veth0 and veth1 virtual interfaces
-for i in {1..2}; do
+for i in {0..2}; do
 	sudo ip l add veth$i type veth
 	sudo ip l set veth$i up
 done
