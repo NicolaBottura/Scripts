@@ -35,12 +35,17 @@ if ifconfig | grep -q "tap0"; then # If executing from my pc
 	echo -e "\e[96m--- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK FROM INTERNET ---"
 	echo ""
 	for ip in "${hosts[@]}"; do
-		ping -c 1 $ip > /dev/null
-		if [ $?	-eq 1 ]
+		if [ $ip = "${hosts[8]}" ]
 		then
-			echo -e "\e[92mCan't ping "$ip", firewall is working -> OK\e[0m"
+			continue
 		else
-			echo -e "\e[31mWARNING: successful ping to "$ip"\e[0m"
+			ping -c 1 $ip > /dev/null
+			if [ $?	-eq 1 ]
+			then
+				echo -e "\e[92mCan't ping "$ip", firewall is working -> OK\e[0m"
+			else
+				echo -e "\e[31mWARNING: successful ping to "$ip"\e[0m"
+			fi
 		fi
 	done
 
@@ -50,13 +55,18 @@ if ifconfig | grep -q "tap0"; then # If executing from my pc
 	echo ""
 	for ip in "${hosts[@]}"; do
 		for port in "${tcp_services[@]}"; do
-			echo -e "\e[95mConnecting to "$ip" port "$port"\e[0m"
-			nc -vz $ip $port 2> /dev/null
-			if [ $? -eq 0 ]
+			if [ $ip = "${hosts[8]}" ]
 			then
-				echo -e "\e[92mConnection succeeded\e[0m"
+				continue
 			else
-				echo -e "\e[31mWARNING: can't connect to webserver\e[0m"
+				echo -e "\e[95mConnecting to "$ip" port "$port"\e[0m"
+				nc -vz $ip $port -w 3 2> /dev/null
+				if [ $? -eq 0 ]
+				then
+					echo -e "\e[92mConnection succeeded\e[0m"
+				else
+					echo -e "\e[31mWARNING: can't connect to webserver\e[0m"
+				fi
 			fi
 		done
 	done
