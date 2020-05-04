@@ -60,21 +60,29 @@ ping_tests() {
 
 services_tests() {
 	
+	names=(	proxyserver # Try to test the resolver in the proper wa
+       		dc	    # also when we are on one of these two machines
+	)
+
 	# --- CONNECTION TO SERVICES TEST ---
 	echo ""
 	echo -e "\e[96m--- CONNECTION TO SERVICES TEST ---\e[0m"
 	echo ""
+	echo -e "\e[38;5;202m------------ Testing "${hosts[3]}" port "${services[3]}" ------------\e[0m"
 	
-	echo -e "\e[44m------------ Connecting to "${hosts[3]}" port "${services[3]}" ------------\e[0m"
-	echo ""
-	host proxyserver.acme-14.test > /dev/null # DNS on dc machine test
-	if [ $? -eq 0 ]
-	then
-		echo -e "\e[92mConnection succeeded\e[0m"
-	else
-		echo -e "\e[91mWARNING: can't connect\e[0m"
-	fi
-	echo ""
+	for name in ${names[@]}; do
+		echo -e "\e[38;5;199m------------ Trying to resolve "$name"\e[0m"
+		echo ""
+		
+		host $name.acme-14.test > /dev/null # DNS on dc machine test
+		if [ $? -eq 0 ]
+		then
+			echo -e "\e[92m             Connection succeeded\e[0m"
+		else
+			echo -e "\e[91m             WARNING: can't connect\e[0m"
+		fi
+		echo ""
+	done
 
 	for ip in "${hosts[@]}"; do
 		for port in "${services[@]}"; do
@@ -136,20 +144,27 @@ if ifconfig | grep -q "tap0"; then # IF MY HOST
 	ping_tests # Function that tests if this host can ping each machine in the ACME network
 
 	services_tests # Function that tests the connection with the services provided in the ACME network
-	
-
-elif [ $(hostname -I) = ${hosts[4]} ] || [ $(hostname -I) = ${hosts[5]} ]; # IF CLIENT NET HOST
-then
-	IP=$(hostname -I)
-	
-	ping_tests # Function that tests if this host can ping each machine in the ACME network
-
-	services_tests # Function that tests the connection with the services provided in the ACME network
 
 elif [ $(hostname -I) = ${hosts[0]} ] || [ $(hostname -I) = ${hosts[1]} ]; # IF DMZ NET HOST
 then
 	IP=$(hostname -I)
 
+	ping_tests # Function that tests if this host can ping each machine in the ACME network
+
+	services_tests # Function that tests the connection with the services provided in the ACME network
+
+elif [ $(hostname -I) = ${hosts[2]} ] || [ $(hostname -I) = ${hosts[3]} ]; # IF DMZ NET HOST
+then
+	IP=$(hostname -I)
+
+	ping_tests # Function that tests if this host can ping each machine in the ACME network
+
+	services_tests # Function that tests the connection with the services provided in the ACME network
+
+elif [ $(hostname -I) = ${hosts[4]} ] || [ $(hostname -I) = ${hosts[5]} ]; # IF CLIENT NET HOST
+then
+	IP=$(hostname -I)
+	
 	ping_tests # Function that tests if this host can ping each machine in the ACME network
 
 	services_tests # Function that tests the connection with the services provided in the ACME network
