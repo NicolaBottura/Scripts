@@ -10,14 +10,15 @@ hosts=( 100.100.6.2 #web server
 		100.100.4.100 #client external 1
 		100.100.4.10 #fantastic coffee
 		100.101.0.2 #my host pc
+		google.com
 )
 
 # --- Define all the services ---
 services=(	80 #HTTP
-			443 #HTTPS
-			22 #SSH
+		443 #HTTPS
+		22 #SSH
 	    	53 # DNS
-			514 #log
+		514 #log
 )
 
 echo -e "\e[95m              ****************************************"
@@ -35,6 +36,16 @@ ping_tests() {
 		if [ $ip = $IP ]
 		then
 			continue
+		elif [ $ip = google.com ]
+		then
+			ping -c 1 $ip > /dev/null
+			if [ $?	-eq 1 ]
+			then
+				echo -e "\e[93mCan't access Internet, firewall is working -> OK\e[0m"
+			else
+				echo -e "\e[38;5;208mWARNING: successful internet access\e[0m"
+			fi
+
 		else
 			ping -c 1 $ip > /dev/null
 			if [ $?	-eq 1 ]
@@ -67,7 +78,7 @@ services_tests() {
 
 	for ip in "${hosts[@]}"; do
 		for port in "${services[@]}"; do
-			if [ $ip = $IP ] || [[ $port -eq 53 ]]
+			if [ $ip = $IP ] || [[ $port -eq 53 ]] || [ $ip = google.com ]
 			then
 				continue
 
@@ -119,6 +130,7 @@ services_tests() {
 }
 
 if ifconfig | grep -q "tap0"; then # IF MY HOST
+
 	IP=$(hostname -I | cut -d " " -f 2)
 
 	ping_tests # Function that tests if this host can ping each machine in the ACME network
@@ -130,6 +142,14 @@ elif [ $(hostname -I) = ${hosts[4]} ] || [ $(hostname -I) = ${hosts[5]} ]; # IF 
 then
 	IP=$(hostname -I)
 	
+	ping_tests # Function that tests if this host can ping each machine in the ACME network
+
+	services_tests # Function that tests the connection with the services provided in the ACME network
+
+elif [ $(hostname -I) = ${hosts[0]} ] || [ $(hostname -I) = ${hosts[1]} ]; # IF DMZ NET HOST
+then
+	IP=$(hostname -I)
+
 	ping_tests # Function that tests if this host can ping each machine in the ACME network
 
 	services_tests # Function that tests the connection with the services provided in the ACME network
