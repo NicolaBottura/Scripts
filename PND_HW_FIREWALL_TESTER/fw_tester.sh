@@ -173,7 +173,7 @@ then
 
 	services_tests # Function that tests the connection with the services provided in the ACME network
 
-elif [ $(hostname -I) = ${hosts[6]} ] || [ $(hostname -I) = ${hosts[7]} ]; # IF CLIENT NET HOST
+elif [ $(hostname -I) = ${hosts[6]} ] || [ $(hostname -I) = ${hosts[7]} ]; # IF EXT NET HOST
 then
 	IP=$(hostname -I)
 	
