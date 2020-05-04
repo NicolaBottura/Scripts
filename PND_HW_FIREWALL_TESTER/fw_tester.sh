@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Define all the hosts IP ---
-hosts=( 	100.100.6.2 #web server
+hosts=( 100.100.6.2 #web server
 		100.100.6.3 #proxy
 		100.100.1.3 #log server
 		100.100.1.2 #domain controller
@@ -14,10 +14,10 @@ hosts=( 	100.100.6.2 #web server
 
 # --- Define all the services ---
 services=(	80 #HTTP
-		443 #HTTPS
-		22 #SSH
-	        53 # DNS
-		514 #log
+			443 #HTTPS
+			22 #SSH
+	    	53 # DNS
+			514 #log
 )
 
 echo -e "\e[95m              ****************************************"
@@ -25,8 +25,7 @@ echo          "              ************ Firewall tests ************"
 echo -e       "              ****************************************\e[0m"
 echo ""
 
-if ifconfig | grep -q "tap0"; then # If executing from my pc
-	IP=$(hostname -I | cut -d " " -f 2)
+ping_tests() {
 
 	# --- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK ---
 	echo ""
@@ -46,74 +45,10 @@ if ifconfig | grep -q "tap0"; then # If executing from my pc
 			fi
 		fi
 	done
+}
 
-	# --- CONNECTION TO SERVICES TEST ---
-	echo ""
-	echo -e "\e[96m--- CONNECTION TO TCP SERVICES TEST ---\e[0m"
-	echo ""
-	for ip in "${hosts[@]}"; do
-		for port in "${tcp_services[@]}"; do
-			if [ $ip = $IP ] || [[ $port -eq 22 ]]
-			then
-				continue
-			else
-				echo -e "\e[95mConnecting to "$ip" port "$port"\e[0m"
-				nc -vz $ip $port -w 3 2> /dev/null
-				if [ $? -eq 0 ]
-				then
-					echo -e "\e[92mConnection succeeded\e[0m"
-				else
-					echo -e "\e[91mWARNING: can't connect to webserver\e[0m"
-				fi
-			fi
-		done
-	done
-
-	# --- CONNECTION TO UDP SERVICES TEST ---
-	echo ""
-	echo -e "\e[96m--- CONNECTION TO UDP SERVICES TEST ---\e[0m"
-	echo ""
-	for ip in "${hosts[@]}"; do
-		for port in "${udp_services[@]}"; do
-			if [ $ip = $IP ]
-			then
-				continue
-			else
-				echo -e "\e[95mConnecting to "$ip" port "$port"\e[0m"
-				nc -vz $ip $port -w 3 2> /dev/null
-				if [ $? -eq 0 ]
-				then
-					echo -e "\e[92mConnection succeeded\e[0m"
-				else
-					echo -e "\e[91mWARNING: can't connect to webserver\e[0m"
-				fi
-			fi
-		done
-	done
-
-elif [ $(hostname -I) = ${hosts[4]} ] || [ $(hostname -I) = ${hosts[5]} ]; # If CLIENT NET host
-then
-	IP=$(hostname -I)
+services_tests() {
 	
-	# --- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK ---
-	echo ""
-	echo -e "\e[96m--- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK FROM CLIENT NET ---"
-	echo ""
-	for ip in "${hosts[@]}"; do
-		if [ $ip = $IP ]
-		then
-			continue
-		else
-			ping -c 1 $ip > /dev/null
-			if [ $?	-eq 1 ]
-			then
-				echo -e "\e[92mCan't ping "$ip", firewall is working -> OK\e[0m"
-			else
-				echo -e "\e[91mWARNING: successful ping to "$ip"\e[0m"
-			fi
-		fi
-	done
-
 	# --- CONNECTION TO SERVICES TEST ---
 	echo ""
 	echo -e "\e[96m--- CONNECTION TO SERVICES TEST ---\e[0m"
@@ -181,5 +116,22 @@ then
 			fi
 		done
 	done
+}
+
+if ifconfig | grep -q "tap0"; then # IF MY HOST
+	IP=$(hostname -I | cut -d " " -f 2)
+
+	ping_tests # Function that tests if this host can ping each machine in the ACME network
+
+	services_tests # Function that tests the connection with the services provided in the ACME network
+	
+
+elif [ $(hostname -I) = ${hosts[4]} ] || [ $(hostname -I) = ${hosts[5]} ]; # IF CLIENT NET HOST
+then
+	IP=$(hostname -I)
+	
+	ping_tests # Function that tests if this host can ping each machine in the ACME network
+
+	services_tests # Function that tests the connection with the services provided in the ACME network
 
 fi
