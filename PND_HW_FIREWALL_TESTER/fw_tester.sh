@@ -38,12 +38,16 @@ ping_tests() {
 			continue
 		elif [ $ip = google.com ]
 		then
-			ping -c 1 $ip > /dev/null
+			echo ""
+			echo -e "\e[38;5;202m------------ Testing Internet access ------------\e[0m"
+			echo ""
+
+			nslookup $ip > /dev/null
 			if [ $?	-eq 1 ]
 			then
-				echo -e "\e[93mCan't access Internet, firewall is working -> OK\e[0m"
+				echo -e "\e[92mCan't access Internet, firewall is working -> OK\e[0m"
 			else
-				echo -e "\e[38;5;208mWARNING: successful internet access\e[0m"
+				echo -e "\e[91m****** WARNING: successful internet access ******\e[0m"
 			fi
 
 		else
@@ -168,5 +172,14 @@ then
 	ping_tests # Function that tests if this host can ping each machine in the ACME network
 
 	services_tests # Function that tests the connection with the services provided in the ACME network
+
+elif [ $(hostname -I) = ${hosts[6]} ] || [ $(hostname -I) = ${hosts[7]} ]; # IF CLIENT NET HOST
+then
+	IP=$(hostname -I)
+	
+	ping_tests # Function that tests if this host can ping each machine in the ACME network
+
+	services_tests # Function that tests the connection with the services provided in the ACME network
+
 
 fi
