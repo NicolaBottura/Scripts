@@ -13,12 +13,10 @@ hosts=( 	100.100.6.2 #web server
 )
 
 # --- Define all the services ---
-tcp_services=(	80 #HTTP
+services=(	80 #HTTP
 		443 #HTTPS
 		22 #SSH
-)
-
-udp_services=(  53 # DNS
+	        53 # DNS
 		514 #log
 )
 
@@ -35,7 +33,7 @@ if ifconfig | grep -q "tap0"; then # If executing from my pc
 	echo -e "\e[96m--- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK FROM INTERNET ---"
 	echo ""
 	for ip in "${hosts[@]}"; do
-		if [ $ip = "${hosts[8]}" ]
+		if [ $ip = $IP ]
 		then
 			continue
 		else
@@ -44,18 +42,18 @@ if ifconfig | grep -q "tap0"; then # If executing from my pc
 			then
 				echo -e "\e[92mCan't ping "$ip", firewall is working -> OK\e[0m"
 			else
-				echo -e "\e[31mWARNING: successful ping to "$ip"\e[0m"
+				echo -e "\e[91mWARNING: successful ping to "$ip"\e[0m"
 			fi
 		fi
 	done
 
-	# --- LINK TEST TO THE WEBSERVER ---
+	# --- CONNECTION TO SERVICES TEST ---
 	echo ""
-	echo -e "\e[96m--- LINK TEST TO WEBSERVER ---\e[0m"
+	echo -e "\e[96m--- CONNECTION TO TCP SERVICES TEST ---\e[0m"
 	echo ""
 	for ip in "${hosts[@]}"; do
 		for port in "${tcp_services[@]}"; do
-			if [ $ip = "${hosts[8]}" ]
+			if [ $ip = $IP ] || [[ $port -eq 22 ]]
 			then
 				continue
 			else
@@ -65,47 +63,123 @@ if ifconfig | grep -q "tap0"; then # If executing from my pc
 				then
 					echo -e "\e[92mConnection succeeded\e[0m"
 				else
-					echo -e "\e[31mWARNING: can't connect to webserver\e[0m"
+					echo -e "\e[91mWARNING: can't connect to webserver\e[0m"
 				fi
 			fi
 		done
 	done
 
-elif [ $(hostname -I) = ${hosts[5]} ]; # If ACME host
+	# --- CONNECTION TO UDP SERVICES TEST ---
+	echo ""
+	echo -e "\e[96m--- CONNECTION TO UDP SERVICES TEST ---\e[0m"
+	echo ""
+	for ip in "${hosts[@]}"; do
+		for port in "${udp_services[@]}"; do
+			if [ $ip = $IP ]
+			then
+				continue
+			else
+				echo -e "\e[95mConnecting to "$ip" port "$port"\e[0m"
+				nc -vz $ip $port -w 3 2> /dev/null
+				if [ $? -eq 0 ]
+				then
+					echo -e "\e[92mConnection succeeded\e[0m"
+				else
+					echo -e "\e[91mWARNING: can't connect to webserver\e[0m"
+				fi
+			fi
+		done
+	done
+
+elif [ $(hostname -I) = ${hosts[4]} ] || [ $(hostname -I) = ${hosts[5]} ]; # If CLIENT NET host
 then
 	IP=$(hostname -I)
 	
 	# --- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK ---
 	echo ""
-	echo -e "\e[96m--- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK FROM KALI MACHINE ---"
+	echo -e "\e[96m--- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK FROM CLIENT NET ---"
 	echo ""
 	for ip in "${hosts[@]}"; do
-		ping -c 1 $ip > /dev/null
-		if [ $?	-eq 1 ]
+		if [ $ip = $IP ]
 		then
-			echo -e "\e[31mCan't ping "$ip"\e[0m"
+			continue
 		else
-			echo -e "\e[92mSuccessful ping to "$ip"\e[0m"
+			ping -c 1 $ip > /dev/null
+			if [ $?	-eq 1 ]
+			then
+				echo -e "\e[92mCan't ping "$ip", firewall is working -> OK\e[0m"
+			else
+				echo -e "\e[91mWARNING: successful ping to "$ip"\e[0m"
+			fi
 		fi
 	done
 
-	# --- LINK TEST TO THE LOG SERVER ---
+	# --- CONNECTION TO SERVICES TEST ---
 	echo ""
-	echo -e "\e[96m--- LINK TEST TO LOG SERVER ---\e[0m"
+	echo -e "\e[96m--- CONNECTION TO SERVICES TEST ---\e[0m"
 	echo ""
-	nc -vz ${hosts[2]} $log 2> /dev/null
+	
+	echo -e "\e[44m------------ Connecting to "${hosts[3]}" port "${services[3]}" ------------\e[0m"
+	echo ""
+	host proxyserver.acme-14.test > /dev/null # DNS on dc machine test
 	if [ $? -eq 0 ]
 	then
-		echo -e "\e[31mWARNING: Connection succeeded\e[0m"
+		echo -e "\e[92mConnection succeeded\e[0m"
 	else
-		echo -e "\e[92mCan't connect to log server, firewall is working -> OK\e[0m"
+		echo -e "\e[91mWARNING: can't connect\e[0m"
 	fi
+	echo ""
 
-	# --- SSH TEST TO SERVER AND DMZ NET ---
-	echo ""
-	echo -e "\e[96m--- SSH TEST TO WEBSERVER ---\e[0m"
-	echo ""
-	#£for i int {1..2}; do
-	#	ssh zentyal@${hosts[i]}	
-	#done	
+	for ip in "${hosts[@]}"; do
+		for port in "${services[@]}"; do
+			if [ $ip = $IP ] || [[ $port -eq 53 ]]
+			then
+				continue
+
+			# RICORDA DI CREARE UN UTENTE TEST SU TUTTI GLI HOST PER TESTARE SSH
+			elif [[ $port -eq 22 ]]
+			then
+				echo -e "\e[44m------------ Connecting to "$ip" port "$port" ------------\e[0m"
+				echo ""
+				status=$(ssh -o BatchMode=yes -o ConnectTimeout=5 test@$ip echo ok 2>&1)
+
+				if [[ status == ok ]]
+				then
+					echo -e "\e[92mCan SSH connect\e[0m"
+				elif [[ $status == "Permission denied"* ]]
+				then
+					echo -e "\e[92mCan SSH connect, but no auth\e[0m"
+				else
+					echo -e "\e[91mCan't SSH connect\e[0m"
+				fi
+				echo ""
+
+			elif [[ $port -eq 514 ]]
+			then
+				echo -e "\e[44m------------ Connecting to "$ip" port "$port" ------------\e[0m"
+				echo ""
+				nc -v -z -u -w 3 2> /dev/null
+				if [ $? -eq 0 ]
+				then
+					echo -e "\e[92mConnection succeeded\e[0m"
+				else
+					echo -e "\e[91mWARNING: can't connect\e[0m"
+				fi
+				echo ""
+
+			else
+				echo -e "\e[44m------------ Connecting to "$ip" port "$port" ------------\e[0m"
+				echo ""
+				nc -vz $ip $port -w 3 2> /dev/null
+				if [ $? -eq 0 ]
+				then
+					echo -e "\e[92mConnection succeeded\e[0m"
+				else
+					echo -e "\e[91mWARNING: can't connect\e[0m"
+				fi
+				echo ""
+			fi
+		done
+	done
+
 fi
