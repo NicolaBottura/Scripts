@@ -38,7 +38,7 @@ ping_tests() {
 
 	# --- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK ---
 	echo ""
-	echo -e "\e[96m--- PING TEST TO ALL THE HOSTS IN THE ACME NETWORK FROM INTERNET ---"
+	echo -e "\e[96m--------- PING TEST ---------"
 	echo ""
 	for ip in "${hosts[@]}"; do
 		if [ $ip = $IP ]
@@ -59,6 +59,21 @@ ping_tests() {
 			fi
 
 		else
+			if [ $ip = 100.100.6.3 ]
+			then
+				echo ""
+				echo -e "\e[96m*** CONNECTION TO PROXY SERVER TEST ***\e[0m"
+
+				wget -q --spider -T 3 https://$ip:8443
+				if [ $?	-eq 5 ]
+				then
+					echo -e "\e[92mSuccessful access to Proxy server\e[0m"
+				else
+					echo -e "\e[91mWARNING: can't access to Proxy server\e[0m"
+				fi
+			fi
+			echo ""
+
 			ping -c 1 $ip > /dev/null
 			if [ $?	-ne 0 ]
 			then
