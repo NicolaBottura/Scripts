@@ -18,7 +18,6 @@ services=(	80 #HTTP
 		443 #HTTPS
 		22 #SSH
 	    	53 # DNS
-		514 #log
 )
 
 echo -e "\e[38;5;45m
@@ -127,24 +126,11 @@ services_tests() {
 				if [[ status == ok ]]
 				then
 					echo -e "\e[92mCan SSH connect\e[0m"
-				elif [[ $status == "Permission denied"* ]]
+				elif [[ $status == *"Permission denied"* ]]
 				then
 					echo -e "\e[92mCan SSH connect, but no auth\e[0m"
 				else
 					echo -e "\e[91mCan't SSH connect\e[0m"
-				fi
-				echo ""
-
-			elif [[ $port -eq 514 ]]
-			then
-				echo -e "\e[44m------------ Connecting to "$ip" port "$port" ------------\e[0m"
-				echo ""
-				nc -v -z -u -w 3 2> /dev/null
-				if [ $? -eq 0 ]
-				then
-					echo -e "\e[92mConnection succeeded\e[0m"
-				else
-					echo -e "\e[91mWARNING: can't connect\e[0m"
 				fi
 				echo ""
 
