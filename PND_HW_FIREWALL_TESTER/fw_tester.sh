@@ -50,8 +50,8 @@ ping_tests() {
 			echo -e "\e[38;5;202m------------ Testing Internet access ------------\e[0m"
 			echo ""
 
-			nslookup $ip > /dev/null
-			if [ $?	-eq 1 ]
+			wget -q --spider -T 3 http://google.com
+			if [ $?	-ne 0 ]
 			then
 				echo -e "\e[92mCan't access Internet, firewall is working -> OK\e[0m"
 			else
@@ -60,7 +60,7 @@ ping_tests() {
 
 		else
 			ping -c 1 $ip > /dev/null
-			if [ $?	-eq 1 ]
+			if [ $?	-ne 0 ]
 			then
 				echo -e "\e[92mCan't ping "$ip", firewall is working -> OK\e[0m"
 			else
