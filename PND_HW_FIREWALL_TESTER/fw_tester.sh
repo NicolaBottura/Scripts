@@ -31,6 +31,9 @@ echo -e "\e[38;5;45m
 	    '~._  NB |  | *  .'     
                 '~._ |.' * .'
 	             ' 
+		     
+@Nicola Bottura
+
 \e[0m"
 
 ping_tests() {
