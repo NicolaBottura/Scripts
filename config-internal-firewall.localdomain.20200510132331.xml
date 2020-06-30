@@ -1,0 +1,2832 @@
+<?xml version="1.0"?>
+<opnsense>
+  <theme>opnsense</theme>
+  <sysctl>
+    <item>
+      <descr>Disable the pf ftp proxy handler.</descr>
+      <tunable>debug.pfftpproxy</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Increase UFS read-ahead speeds to match the state of hard drives and NCQ.</descr>
+      <tunable>vfs.read_max</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Set the ephemeral port range to be lower.</descr>
+      <tunable>net.inet.ip.portrange.first</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Drop packets to closed TCP ports without returning a RST</descr>
+      <tunable>net.inet.tcp.blackhole</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Do not send ICMP port unreachable messages for closed UDP ports</descr>
+      <tunable>net.inet.udp.blackhole</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Randomize the ID field in IP packets</descr>
+      <tunable>net.inet.ip.random_id</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>
+        Source routing is another way for an attacker to try to reach non-routable addresses behind your box.
+        It can also be used to probe for information about your internal networks. These functions come enabled
+        as part of the standard FreeBSD core system.
+      </descr>
+      <tunable>net.inet.ip.sourceroute</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>
+        Source routing is another way for an attacker to try to reach non-routable addresses behind your box.
+        It can also be used to probe for information about your internal networks. These functions come enabled
+        as part of the standard FreeBSD core system.
+      </descr>
+      <tunable>net.inet.ip.accept_sourceroute</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>
+        This option turns off the logging of redirect packets because there is no limit and this could fill
+        up your logs consuming your whole hard drive.
+      </descr>
+      <tunable>net.inet.icmp.log_redirect</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Drop SYN-FIN packets (breaks RFC1379, but nobody uses it anyway)</descr>
+      <tunable>net.inet.tcp.drop_synfin</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Enable sending IPv6 redirects</descr>
+      <tunable>net.inet6.ip6.redirect</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Enable privacy settings for IPv6 (RFC 4941)</descr>
+      <tunable>net.inet6.ip6.use_tempaddr</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Prefer privacy addresses and use them over the normal addresses</descr>
+      <tunable>net.inet6.ip6.prefer_tempaddr</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Generate SYN cookies for outbound SYN-ACK packets</descr>
+      <tunable>net.inet.tcp.syncookies</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Maximum incoming/outgoing TCP datagram size (receive)</descr>
+      <tunable>net.inet.tcp.recvspace</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Maximum incoming/outgoing TCP datagram size (send)</descr>
+      <tunable>net.inet.tcp.sendspace</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Do not delay ACK to try and piggyback it onto a data packet</descr>
+      <tunable>net.inet.tcp.delayed_ack</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Maximum outgoing UDP datagram size</descr>
+      <tunable>net.inet.udp.maxdgram</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Handling of non-IP packets which are not passed to pfil (see if_bridge(4))</descr>
+      <tunable>net.link.bridge.pfil_onlyip</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Set to 1 to additionally filter on the physical interface for locally destined packets</descr>
+      <tunable>net.link.bridge.pfil_local_phys</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Set to 0 to disable filtering on the incoming and outgoing member interfaces.</descr>
+      <tunable>net.link.bridge.pfil_member</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Set to 1 to enable filtering on the bridge interface</descr>
+      <tunable>net.link.bridge.pfil_bridge</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Allow unprivileged access to tap(4) device nodes</descr>
+      <tunable>net.link.tap.user_open</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Randomize PID's (see src/sys/kern/kern_fork.c: sysctl_kern_randompid())</descr>
+      <tunable>kern.randompid</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Maximum size of the IP input queue</descr>
+      <tunable>net.inet.ip.intr_queue_maxlen</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Disable CTRL+ALT+Delete reboot from keyboard.</descr>
+      <tunable>hw.syscons.kbd_reboot</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Enable TCP extended debugging</descr>
+      <tunable>net.inet.tcp.log_debug</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Set ICMP Limits</descr>
+      <tunable>net.inet.icmp.icmplim</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>TCP Offload Engine</descr>
+      <tunable>net.inet.tcp.tso</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>UDP Checksums</descr>
+      <tunable>net.inet.udp.checksum</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Maximum socket buffer size</descr>
+      <tunable>kern.ipc.maxsockbuf</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Page Table Isolation (Meltdown mitigation, requires reboot.)</descr>
+      <tunable>vm.pmap.pti</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Disable Indirect Branch Restricted Speculation (Spectre V2 mitigation)</descr>
+      <tunable>hw.ibrs_disable</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Hide processes running as other groups</descr>
+      <tunable>security.bsd.see_other_gids</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Hide processes running as other users</descr>
+      <tunable>security.bsd.see_other_uids</tunable>
+      <value>default</value>
+    </item>
+    <item>
+      <descr>Enable/disable sending of ICMP redirects in response to IP packets for which a better,
+        and for the sender directly reachable, route and next hop is known.
+      </descr>
+      <tunable>net.inet.ip.redirect</tunable>
+      <value>0</value>
+    </item>
+    <item>
+      <descr>
+        Redirect attacks are the purposeful mass-issuing of ICMP type 5 packets. In a normal network, redirects
+        to the end stations should not be required. This option enables the NIC to drop all inbound ICMP redirect
+        packets without returning a response.
+      </descr>
+      <tunable>net.inet.icmp.drop_redirect</tunable>
+      <value>1</value>
+    </item>
+    <item>
+      <descr>Maximum outgoing UDP datagram size</descr>
+      <tunable>net.local.dgram.maxdgram</tunable>
+      <value>default</value>
+    </item>
+  </sysctl>
+  <system>
+    <optimization>normal</optimization>
+    <hostname>internal-firewall</hostname>
+    <domain>localdomain</domain>
+    <dnsallowoverride>1</dnsallowoverride>
+    <group>
+      <name>admins</name>
+      <description>System Administrators</description>
+      <scope>system</scope>
+      <gid>1999</gid>
+      <member>0</member>
+      <priv>page-all</priv>
+    </group>
+    <user>
+      <name>root</name>
+      <descr>System Administrator</descr>
+      <scope>system</scope>
+      <groupname>admins</groupname>
+      <password>$2y$10$5EDjNQ0v2O3JI9eUbSduouj6mmdRjL91UeYX/AKXrpHad8pPfhX6y</password>
+      <uid>0</uid>
+    </user>
+    <nextuid>2000</nextuid>
+    <nextgid>2000</nextgid>
+    <timezone>Etc/UTC</timezone>
+    <timeservers>0.opnsense.pool.ntp.org 1.opnsense.pool.ntp.org 2.opnsense.pool.ntp.org 3.opnsense.pool.ntp.org</timeservers>
+    <webgui>
+      <protocol>http</protocol>
+      <ssl-certref>5e419b7cd7253</ssl-certref>
+      <port/>
+      <ssl-ciphers/>
+      <interfaces/>
+      <compression/>
+    </webgui>
+    <disablenatreflection>yes</disablenatreflection>
+    <usevirtualterminal>1</usevirtualterminal>
+    <disableconsolemenu>1</disableconsolemenu>
+    <disablevlanhwfilter>2</disablevlanhwfilter>
+    <disablechecksumoffloading>1</disablechecksumoffloading>
+    <disablesegmentationoffloading>1</disablesegmentationoffloading>
+    <disablelargereceiveoffloading>1</disablelargereceiveoffloading>
+    <ipv6allow/>
+    <powerd_ac_mode>hadp</powerd_ac_mode>
+    <powerd_battery_mode>hadp</powerd_battery_mode>
+    <powerd_normal_mode>hadp</powerd_normal_mode>
+    <bogons>
+      <interval>monthly</interval>
+    </bogons>
+    <kill_states/>
+    <backupcount>60</backupcount>
+    <crypto_hardware>aesni</crypto_hardware>
+    <pf_share_forward>1</pf_share_forward>
+    <lb_use_sticky>1</lb_use_sticky>
+    <ssh>
+      <group>admins</group>
+      <noauto>1</noauto>
+      <interfaces/>
+      <enabled>enabled</enabled>
+      <passwordauth>1</passwordauth>
+      <permitrootlogin>1</permitrootlogin>
+    </ssh>
+    <backup>
+      <nextcloud version="1.0.0">
+        <enabled>0</enabled>
+        <url/>
+        <user/>
+        <password/>
+        <password_encryption/>
+        <backupdir>OPNsense-Backup</backupdir>
+      </nextcloud>
+    </backup>
+    <dnsserver>100.100.254.1</dnsserver>
+    <language>en_US</language>
+    <dnsallowoverride_exclude/>
+    <dns1gw>none</dns1gw>
+    <dns2gw>none</dns2gw>
+    <dns3gw>none</dns3gw>
+    <dns4gw>none</dns4gw>
+    <dns5gw>none</dns5gw>
+    <dns6gw>none</dns6gw>
+    <dns7gw>none</dns7gw>
+    <dns8gw>none</dns8gw>
+    <serialspeed>115200</serialspeed>
+    <primaryconsole>video</primaryconsole>
+  </system>
+  <interfaces>
+    <wan>
+      <if>em0</if>
+      <descr>EXTERNAL</descr>
+      <enable>1</enable>
+      <spoofmac/>
+      <mtu>1400</mtu>
+      <ipaddr>100.100.254.2</ipaddr>
+      <subnet>30</subnet>
+      <gateway>GW_WAN</gateway>
+    </wan>
+    <lan>
+      <if>em2</if>
+      <descr>CLIENTS</descr>
+      <enable>1</enable>
+      <spoofmac/>
+      <mtu>1400</mtu>
+      <ipaddr>100.100.2.1</ipaddr>
+      <subnet>24</subnet>
+    </lan>
+    <opt1>
+      <if>em1</if>
+      <descr>SERVERS</descr>
+      <enable>1</enable>
+      <spoofmac/>
+      <mtu>1400</mtu>
+      <ipaddr>100.100.1.1</ipaddr>
+      <subnet>24</subnet>
+    </opt1>
+  </interfaces>
+  <dhcpd>
+    <lan>
+      <enable>1</enable>
+      <gateway>100.100.2.1</gateway>
+      <ddnsdomainalgorithm>hmac-md5</ddnsdomainalgorithm>
+      <mac_allow>ba:9d:d3</mac_allow>
+      <numberoptions>
+        <item/>
+      </numberoptions>
+      <range>
+        <from>100.100.2.150</from>
+        <to>100.100.2.200</to>
+      </range>
+      <winsserver/>
+      <dnsserver>100.100.1.2</dnsserver>
+      <ntpserver/>
+      <staticmap>
+        <mac>20:82:5d:9c:2d:86</mac>
+        <winsserver/>
+        <dnsserver/>
+        <ntpserver/>
+      </staticmap>
+      <staticmap>
+        <mac>e6:80:50:ca:84:e3</mac>
+        <winsserver/>
+        <dnsserver/>
+        <ntpserver/>
+      </staticmap>
+      <staticmap>
+        <mac>e6:80:50:ae:18:56</mac>
+        <winsserver/>
+        <dnsserver/>
+        <ntpserver/>
+      </staticmap>
+      <staticmap>
+        <mac>36:ca:37:b1:88:4f</mac>
+        <winsserver/>
+        <dnsserver/>
+        <ntpserver/>
+      </staticmap>
+      <staticmap>
+        <mac>e6:80:50:b3:ff:ae</mac>
+        <winsserver/>
+        <dnsserver/>
+        <ntpserver/>
+      </staticmap>
+      <staticmap>
+        <mac>e6:80:50:76:15:46</mac>
+        <ipaddr>100.100.2.100</ipaddr>
+        <hostname>Kali</hostname>
+        <winsserver/>
+        <dnsserver/>
+        <ntpserver/>
+      </staticmap>
+    </lan>
+  </dhcpd>
+  <unbound>
+    <enable>1</enable>
+    <custom_options/>
+    <active_interface>wan,opt1</active_interface>
+  </unbound>
+  <snmpd>
+    <syslocation/>
+    <syscontact/>
+    <rocommunity>public</rocommunity>
+  </snmpd>
+  <syslog>
+    <reverse/>
+  </syslog>
+  <nat>
+    <outbound>
+      <mode>disabled</mode>
+      <rule/>
+    </outbound>
+  </nat>
+  <filter>
+    <rule>
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow traffic from DMZ to SERVERS services(53-514)</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>udp</protocol>
+      <source>
+        <address>DMZNET</address>
+      </source>
+      <destination>
+        <network>opt1</network>
+        <port>DNSandLOG</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1588347332.837</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1588342991.3359</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>wan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow OpenVPN users to access the right part of the acme co. network in SSH</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>tcp</protocol>
+      <source>
+        <address>OpenVPNNET</address>
+      </source>
+      <destination>
+        <any>1</any>
+        <port>22</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1589489557.2618</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1589227658.5293</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>lan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow CLIENT NET to reach DC</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>udp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <address>DomainController</address>
+        <port>53</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1588669039.0548</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.101.0.2</username>
+        <time>1588343909.0716</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>lan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow CLIENT NET to reach SERVERS NET with SSH</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>tcp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <network>opt1</network>
+        <port>22</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1588669122.6178</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1588669122.6178</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>lan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow CLIENT NET to reach DMZ with SSH</descr>
+      <gateway>GW_WAN</gateway>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>tcp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <address>DMZNET</address>
+        <port>22</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1588669329.5443</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1588669329.5443</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>lan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow CLIENT NET to reach PROXY SERVER on port 3128 to access Internet</descr>
+      <gateway>GW_WAN</gateway>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>tcp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <address>ProxyServer</address>
+        <port>ProxyPORT</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1589382117.498</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1588669571.6493</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>lan</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Allow CLIENTS NET to access Web Server on port 80</descr>
+      <gateway>GW_WAN</gateway>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>tcp</protocol>
+      <source>
+        <any>1</any>
+      </source>
+      <destination>
+        <address>Webserver</address>
+        <port>80</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1589540716.4136</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1589486514.8433</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>opt1</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Interne access for DC</descr>
+      <gateway>GW_WAN</gateway>
+      <direction>in</direction>
+      <quick>1</quick>
+      <protocol>tcp/udp</protocol>
+      <source>
+        <address>DomainController</address>
+      </source>
+      <destination>
+        <any>1</any>
+        <port>DCPORTS</port>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1588671292.457</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1588425405.36</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+    <rule>
+      <type>pass</type>
+      <interface>opt1</interface>
+      <ipprotocol>inet</ipprotocol>
+      <statetype>keep state</statetype>
+      <descr>Scanning with GSM</descr>
+      <direction>in</direction>
+      <quick>1</quick>
+      <source>
+        <address>GSM</address>
+      </source>
+      <destination>
+        <any>1</any>
+      </destination>
+      <updated>
+        <username>root@100.100.2.100</username>
+        <time>1593424334.0514</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </updated>
+      <created>
+        <username>root@100.100.2.100</username>
+        <time>1593424334.0514</time>
+        <description>/firewall_rules_edit.php made changes</description>
+      </created>
+    </rule>
+  </filter>
+  <rrd>
+    <enable/>
+  </rrd>
+  <load_balancer>
+    <monitor_type>
+      <name>ICMP</name>
+      <type>icmp</type>
+      <descr>ICMP</descr>
+      <options/>
+    </monitor_type>
+    <monitor_type>
+      <name>TCP</name>
+      <type>tcp</type>
+      <descr>Generic TCP</descr>
+      <options/>
+    </monitor_type>
+    <monitor_type>
+      <name>HTTP</name>
+      <type>http</type>
+      <descr>Generic HTTP</descr>
+      <options>
+        <path>/</path>
+        <host/>
+        <code>200</code>
+      </options>
+    </monitor_type>
+    <monitor_type>
+      <name>HTTPS</name>
+      <type>https</type>
+      <descr>Generic HTTPS</descr>
+      <options>
+        <path>/</path>
+        <host/>
+        <code>200</code>
+      </options>
+    </monitor_type>
+    <monitor_type>
+      <name>SMTP</name>
+      <type>send</type>
+      <descr>Generic SMTP</descr>
+      <options>
+        <send/>
+        <expect>220 *</expect>
+      </options>
+    </monitor_type>
+  </load_balancer>
+  <ntpd>
+    <prefer>0.opnsense.pool.ntp.org</prefer>
+  </ntpd>
+  <widgets>
+    <sequence>system_information-container:00000000-col3:show,services_status-container:00000001-col4:show,gateways-container:00000002-col4:show,interface_list-container:00000003-col4:show</sequence>
+    <column_count>2</column_count>
+  </widgets>
+  <revision>
+    <username>root@100.100.2.100</username>
+    <time>1593549694.6063</time>
+    <description>/firewall_rules.php made changes</description>
+  </revision>
+  <OPNsense>
+    <Firewall>
+      <Alias version="1.0.0">
+        <geoip>
+          <url/>
+        </geoip>
+        <aliases>
+          <alias uuid="b95a6478-1c52-4d9b-92e0-4b3f4f49da35">
+            <enabled>1</enabled>
+            <name>ProxyServer</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.6.3</content>
+            <description>Alias of proxy server in DMZ</description>
+          </alias>
+          <alias uuid="47f11ac5-3c77-4d2b-ac52-e24e8b7d6098">
+            <enabled>1</enabled>
+            <name>DMZNET</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.6.2
+100.100.6.3</content>
+            <description>DMZ Network</description>
+          </alias>
+          <alias uuid="6b39dea2-99b0-4ef4-97a2-1264ad721dd7">
+            <enabled>1</enabled>
+            <name>LogServer</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.1.3</content>
+            <description>Alias for the log server</description>
+          </alias>
+          <alias uuid="e6701eef-0aa1-4689-b59c-d342008dac68">
+            <enabled>1</enabled>
+            <name>DomainController</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.1.2</content>
+            <description>Alias for Domain Controlle</description>
+          </alias>
+          <alias uuid="265fb7b2-0249-494d-8789-353ee974491a">
+            <enabled>1</enabled>
+            <name>DNSandLOG</name>
+            <type>port</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>53
+514</content>
+            <description>Alias for DNS and LOG SERVER ports</description>
+          </alias>
+          <alias uuid="90248ba6-ee35-41fa-8afd-5635fb3c7f12">
+            <enabled>1</enabled>
+            <name>DCPORTS</name>
+            <type>port</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>53
+80
+443
+8080
+8443</content>
+            <description>Ports to allow dns to access the internet and dns services</description>
+          </alias>
+          <alias uuid="b683d05d-1d2e-45ea-a42b-ea6daa6195c7">
+            <enabled>1</enabled>
+            <name>HTTPandS</name>
+            <type>port</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>80
+443
+8080
+8443</content>
+            <description>Alias for HTTP and HTTPS ports</description>
+          </alias>
+          <alias uuid="d0f6947b-18f3-4384-9424-bdf8b8192cf4">
+            <enabled>1</enabled>
+            <name>OpenVPNNET</name>
+            <type>network</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.253.0/24</content>
+            <description/>
+          </alias>
+          <alias uuid="f8b5ae58-1c92-4ffc-8ff9-757c6e4b848b">
+            <enabled>1</enabled>
+            <name>ProxyPORT</name>
+            <type>port</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>3128</content>
+            <description/>
+          </alias>
+          <alias uuid="9eb345f4-6746-4bc1-a771-cbf75c689d50">
+            <enabled>1</enabled>
+            <name>Webserver</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.6.2</content>
+            <description/>
+          </alias>
+          <alias uuid="93dd9ca1-5ea0-4bf4-85d2-ac981b8879c4">
+            <enabled>1</enabled>
+            <name>Webserv</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.6.2</content>
+            <description/>
+          </alias>
+          <alias uuid="cbeff25b-8680-42ca-8ee5-0932ab2d4e05">
+            <enabled>1</enabled>
+            <name>GSM</name>
+            <type>host</type>
+            <proto/>
+            <counters>0</counters>
+            <updatefreq/>
+            <content>100.100.1.4</content>
+            <description>Greenbone</description>
+          </alias>
+        </aliases>
+      </Alias>
+    </Firewall>
+    <captiveportal version="1.0.0">
+      <zones/>
+      <templates/>
+    </captiveportal>
+    <Netflow version="1.0.1">
+      <capture>
+        <interfaces/>
+        <egress_only/>
+        <version>v9</version>
+        <targets/>
+      </capture>
+      <collect>
+        <enable>0</enable>
+      </collect>
+      <activeTimeout>1800</activeTimeout>
+      <inactiveTimeout>15</inactiveTimeout>
+    </Netflow>
+    <Interfaces>
+      <vxlans/>
+      <loopbacks/>
+    </Interfaces>
+    <monit version="1.0.8">
+      <general>
+        <enabled>0</enabled>
+        <interval>120</interval>
+        <startdelay>120</startdelay>
+        <mailserver>127.0.0.1</mailserver>
+        <port>25</port>
+        <username/>
+        <password/>
+        <ssl>0</ssl>
+        <sslversion>auto</sslversion>
+        <sslverify>1</sslverify>
+        <logfile>syslog facility log_daemon</logfile>
+        <statefile/>
+        <eventqueuePath/>
+        <eventqueueSlots/>
+        <httpdEnabled>0</httpdEnabled>
+        <httpdUsername>root</httpdUsername>
+        <httpdPassword>edqxC8sprC0CJ3dOcSe2f</httpdPassword>
+        <httpdPort>2812</httpdPort>
+        <httpdAllow/>
+        <mmonitUrl/>
+        <mmonitTimeout>5</mmonitTimeout>
+        <mmonitRegisterCredentials>1</mmonitRegisterCredentials>
+      </general>
+      <alert uuid="e385308f-c5f7-43a4-883e-65d0c8fcbd19">
+        <enabled>0</enabled>
+        <recipient>root@localhost.local</recipient>
+        <noton>0</noton>
+        <events/>
+        <format/>
+        <reminder>10</reminder>
+        <description/>
+      </alert>
+      <service uuid="6c34b105-b50f-4ac3-b266-4169d6d09a77">
+        <enabled>1</enabled>
+        <name>$HOST</name>
+        <type>system</type>
+        <pidfile/>
+        <match/>
+        <path/>
+        <timeout>300</timeout>
+        <address/>
+        <interface/>
+        <start/>
+        <stop/>
+        <tests>1a090f5d-d723-4730-83e8-45924e971a40,71fc3228-4112-4b90-a8c1-40373237cc33,2a55ed11-2037-4728-9340-903c924c4f2c,c70ff490-543f-4c65-ab79-01556f5acf29</tests>
+        <depends/>
+      </service>
+      <service uuid="df180626-dcb9-421e-bc7e-d32caf13d3ab">
+        <enabled>1</enabled>
+        <name>RootFs</name>
+        <type>filesystem</type>
+        <pidfile/>
+        <match/>
+        <path>/</path>
+        <timeout>300</timeout>
+        <address/>
+        <interface/>
+        <start/>
+        <stop/>
+        <tests>dcb1f1b6-1b5a-4d28-a343-f8bd881c750a</tests>
+        <depends/>
+      </service>
+      <service uuid="413fb222-643e-4963-a7f3-7b1f4216e280">
+        <enabled>0</enabled>
+        <name>carp_status_change</name>
+        <type>custom</type>
+        <pidfile/>
+        <match/>
+        <path>/usr/local/opnsense/scripts/OPNsense/Monit/carp_status</path>
+        <timeout>300</timeout>
+        <address/>
+        <interface/>
+        <start/>
+        <stop/>
+        <tests>57f1bb91-47a3-47ce-84dc-56442776a277</tests>
+        <depends/>
+      </service>
+      <service uuid="b17259b3-55bd-4faf-9aa3-7607701b9cd7">
+        <enabled>0</enabled>
+        <name>gateway_alert</name>
+        <type>custom</type>
+        <pidfile/>
+        <match/>
+        <path>/usr/local/opnsense/scripts/OPNsense/Monit/gateway_alert</path>
+        <timeout>300</timeout>
+        <address/>
+        <interface/>
+        <start/>
+        <stop/>
+        <tests>933e537b-5d61-4b49-9ca3-006c575b4998</tests>
+        <depends/>
+      </service>
+      <test uuid="7f84e705-78ba-4c6f-ae32-6b7582792940">
+        <name>Ping</name>
+        <type>NetworkPing</type>
+        <condition>failed ping</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="04144c2a-7acc-446b-9a2b-6fca1e55ec7b">
+        <name>NetworkLink</name>
+        <type>NetworkInterface</type>
+        <condition>failed link</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="f063bc31-df4d-4147-87b9-7534a229a00c">
+        <name>NetworkSaturation</name>
+        <type>NetworkInterface</type>
+        <condition>saturation is greater than 75%</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="1a090f5d-d723-4730-83e8-45924e971a40">
+        <name>MemoryUsage</name>
+        <type>SystemResource</type>
+        <condition>memory usage is greater than 75%</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="71fc3228-4112-4b90-a8c1-40373237cc33">
+        <name>CPUUsage</name>
+        <type>SystemResource</type>
+        <condition>cpu usage is greater than 75%</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="2a55ed11-2037-4728-9340-903c924c4f2c">
+        <name>LoadAvg1</name>
+        <type>SystemResource</type>
+        <condition>loadavg (1min) is greater than 4</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="c70ff490-543f-4c65-ab79-01556f5acf29">
+        <name>LoadAvg5</name>
+        <type>SystemResource</type>
+        <condition>loadavg (5min) is greater than 3</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="3c206e79-c6f4-446f-8697-dc997bbfe41e">
+        <name>LoadAvg15</name>
+        <type>SystemResource</type>
+        <condition>loadavg (15min) is greater than 2</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="dcb1f1b6-1b5a-4d28-a343-f8bd881c750a">
+        <name>SpaceUsage</name>
+        <type>SpaceUsage</type>
+        <condition>space usage is greater than 75%</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="57f1bb91-47a3-47ce-84dc-56442776a277">
+        <name>ChangedStatus</name>
+        <type>ProgramStatus</type>
+        <condition>changed status</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+      <test uuid="933e537b-5d61-4b49-9ca3-006c575b4998">
+        <name>NonZeroStatus</name>
+        <type>ProgramStatus</type>
+        <condition>status != 0</condition>
+        <action>alert</action>
+        <path/>
+      </test>
+    </monit>
+    <OpenVPNExport version="0.0.1">
+      <servers/>
+    </OpenVPNExport>
+    <proxy version="1.0.3">
+      <general>
+        <enabled>0</enabled>
+        <icpPort/>
+        <logging>
+          <enable>
+            <accessLog>1</accessLog>
+            <storeLog>1</storeLog>
+          </enable>
+          <ignoreLogACL/>
+          <target/>
+        </logging>
+        <alternateDNSservers/>
+        <dnsV4First>0</dnsV4First>
+        <forwardedForHandling>on</forwardedForHandling>
+        <uriWhitespaceHandling>strip</uriWhitespaceHandling>
+        <useViaHeader>1</useViaHeader>
+        <suppressVersion>0</suppressVersion>
+        <VisibleEmail>admin@localhost.local</VisibleEmail>
+        <VisibleHostname/>
+        <cache>
+          <local>
+            <enabled>0</enabled>
+            <directory>/var/squid/cache</directory>
+            <cache_mem>256</cache_mem>
+            <maximum_object_size/>
+            <size>100</size>
+            <l1>16</l1>
+            <l2>256</l2>
+            <cache_linux_packages>0</cache_linux_packages>
+            <cache_windows_updates>0</cache_windows_updates>
+          </local>
+        </cache>
+        <traffic>
+          <enabled>0</enabled>
+          <maxDownloadSize>2048</maxDownloadSize>
+          <maxUploadSize>1024</maxUploadSize>
+          <OverallBandwidthTrotteling>1024</OverallBandwidthTrotteling>
+          <perHostTrotteling>256</perHostTrotteling>
+        </traffic>
+        <parentproxy>
+          <enabled>0</enabled>
+          <host/>
+          <enableauth>0</enableauth>
+          <user>username</user>
+          <password>password</password>
+          <port/>
+          <localdomains/>
+          <localips/>
+        </parentproxy>
+      </general>
+      <forward>
+        <interfaces>lan</interfaces>
+        <port>3128</port>
+        <sslbumpport>3129</sslbumpport>
+        <sslbump>0</sslbump>
+        <sslurlonly>0</sslurlonly>
+        <sslcertificate/>
+        <sslnobumpsites/>
+        <ssl_crtd_storage_max_size>4</ssl_crtd_storage_max_size>
+        <sslcrtd_children>5</sslcrtd_children>
+        <snmp_enable>0</snmp_enable>
+        <snmp_port>3401</snmp_port>
+        <snmp_password>public</snmp_password>
+        <ftpInterfaces/>
+        <ftpPort>2121</ftpPort>
+        <ftpTransparentMode>0</ftpTransparentMode>
+        <addACLforInterfaceSubnets>1</addACLforInterfaceSubnets>
+        <transparentMode>0</transparentMode>
+        <acl>
+          <allowedSubnets/>
+          <unrestricted/>
+          <bannedHosts/>
+          <whiteList/>
+          <blackList/>
+          <browser/>
+          <mimeType/>
+          <safePorts>80:http,21:ftp,443:https,70:gopher,210:wais,1025-65535:unregistered ports,280:http-mgmt,488:gss-http,591:filemaker,777:multiling http</safePorts>
+          <sslPorts>443:https</sslPorts>
+          <remoteACLs>
+            <blacklists/>
+            <UpdateCron/>
+          </remoteACLs>
+        </acl>
+        <icap>
+          <enable>0</enable>
+          <RequestURL>icap://[::1]:1344/avscan</RequestURL>
+          <ResponseURL>icap://[::1]:1344/avscan</ResponseURL>
+          <SendClientIP>1</SendClientIP>
+          <SendUsername>0</SendUsername>
+          <EncodeUsername>0</EncodeUsername>
+          <UsernameHeader>X-Username</UsernameHeader>
+          <EnablePreview>1</EnablePreview>
+          <PreviewSize>1024</PreviewSize>
+          <OptionsTTL>60</OptionsTTL>
+          <exclude/>
+        </icap>
+        <authentication>
+          <method/>
+          <authEnforceGroup/>
+          <realm>OPNsense proxy authentication</realm>
+          <credentialsttl>2</credentialsttl>
+          <children>5</children>
+        </authentication>
+      </forward>
+      <pac/>
+    </proxy>
+    <Syslog version="1.0.0">
+      <general>
+        <enabled>1</enabled>
+      </general>
+      <destinations/>
+    </Syslog>
+    <TrafficShaper version="1.0.3">
+      <pipes/>
+      <queues/>
+      <rules/>
+    </TrafficShaper>
+    <cron version="1.0.1">
+      <jobs>
+        <job uuid="fd10bcea-1a23-4deb-8122-000d01884f3f">
+          <origin>IDS</origin>
+          <enabled>1</enabled>
+          <minutes>0</minutes>
+          <hours>0</hours>
+          <days>1,8,15,22</days>
+          <months>*</months>
+          <weekdays>*</weekdays>
+          <who>root</who>
+          <command>ids update</command>
+          <parameters/>
+          <description>ids rule updates</description>
+        </job>
+      </jobs>
+    </cron>
+    <IDS version="1.0.3">
+      <rules>
+        <rule uuid="ef82eb23-3eb5-446d-810e-2d8edc4cf661">
+          <sid>2000026</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ee3bd669-6c89-4d4d-8791-eb71f125a467">
+          <sid>2030375</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2eba656f-0ed2-4999-af1b-55a058c0214e">
+          <sid>2030373</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3b00febe-de1b-4d96-92cb-f484825af3f2">
+          <sid>2030273</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d3cc944f-1d17-4f07-bbde-66bf6fc68503">
+          <sid>2030272</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a1e4ed27-07a6-4386-85e3-2e40f15f4220">
+          <sid>2030271</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="76a008c9-90fb-4958-b713-602266ad2d7e">
+          <sid>2030198</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="31bd81be-9fdf-4016-9355-b62bcc093668">
+          <sid>2030093</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9b3edf39-337a-407f-81d6-566625bd47fb">
+          <sid>2030048</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e061d3bb-33ba-4bc9-9ba0-4b08f11d7cfc">
+          <sid>2029929</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="66dec37e-fda0-41c3-be38-225191e9213e">
+          <sid>2029808</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3a97b5cd-c0f6-4446-aacd-c82a383e7752">
+          <sid>2029792</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="54e0da2e-c9fa-4062-9ff9-e734b91ec0f1">
+          <sid>2029790</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="451ac1e3-f138-4f25-a0a2-331939f6a64e">
+          <sid>2029769</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="50c3c74f-a492-48ad-ab2e-b19b6623c9b0">
+          <sid>2029763</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2f09d20b-0fe6-49aa-9e50-a525396c518f">
+          <sid>2029759</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ad8b81a7-2d5d-49d3-a803-4d969ce6f64b">
+          <sid>2029645</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9e5b306d-e13c-4564-96ca-75fbcf96325f">
+          <sid>2029577</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f89fea40-eba3-4896-a384-ef194aa1f7d3">
+          <sid>2029473</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="714d97d6-46ac-40a7-a006-6f5ede5f2bbf">
+          <sid>2029318</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="474ed624-c977-4a94-af0c-fbdf4a0188c3">
+          <sid>2029317</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="82ca1579-62f5-4639-b349-98c782e76da4">
+          <sid>2029208</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="454ededd-0e9c-40e4-b1a9-503106053868">
+          <sid>2029054</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e2c61e1b-f58e-4a88-86ac-7afb4b3d3425">
+          <sid>2029026</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="fd33149c-7aee-4e62-a797-d532a12bd0c8">
+          <sid>2029025</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a7b39654-ea97-47e5-b9de-ae08ccfe24af">
+          <sid>2029024</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="afde2761-f1dc-4209-a609-964c43a3897c">
+          <sid>2029023</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f5146c44-52d1-493a-bff5-497cd2823d98">
+          <sid>2029022</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="7b90092b-7409-47d1-8688-6fa76d173eb9">
+          <sid>2029021</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="60ea9382-e55f-494e-a67e-219f1fdbaa2d">
+          <sid>2029020</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="c7d91a20-8dd0-481d-8f75-f20a45847d9d">
+          <sid>2029019</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="c984c6ec-5c60-4214-80e2-0286a70f6d73">
+          <sid>2029018</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5ea15408-8fbb-43bc-be66-e7874dbdd9bf">
+          <sid>2029017</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3d26b891-2d48-44ac-87c1-189412d763ed">
+          <sid>2029016</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="437baff7-c2bf-4828-9ea4-f5bd10a31217">
+          <sid>2029015</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="7015d09c-2dbc-41fb-94bd-0bd20f141e9e">
+          <sid>2026464</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3751326b-ae28-4787-9408-fe71b8f581b8">
+          <sid>2026463</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9a4e87e0-a355-465b-b27d-5f2441678d0c">
+          <sid>2026015</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5d5d3798-11b4-48e6-941a-09f07eb21777">
+          <sid>2026008</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="aad211d0-a3ed-4012-8e08-1e569e15e8e8">
+          <sid>2025822</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="8862f465-ad13-4188-a033-3a0861715152">
+          <sid>2025780</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3972ffcd-a49b-4278-8a77-2d827484070b">
+          <sid>2025760</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6a3837a5-aa06-44a4-a250-4878857add49">
+          <sid>2025461</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3a0fe70a-3579-4d1f-888a-8688c303c2d9">
+          <sid>2024843</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="df44248f-8e0a-4e1e-a859-c8bc7c7adae5">
+          <sid>2024364</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="8c754e18-676c-4b3f-a6a2-6a933dd326a5">
+          <sid>2023753</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dc337dca-fe53-4387-b44d-d5a213aff8dd">
+          <sid>2023688</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5dcaf3bd-53a9-497d-a6f3-a1c6556246e7">
+          <sid>2023687</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="be3a6c46-b501-4b92-8090-1c943b9b6ea9">
+          <sid>2023510</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5269aaab-d9e5-4908-bb9b-5cca6b0e6144">
+          <sid>2022581</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5ddc13c1-8ddd-4135-b41e-817ff6b10f2a">
+          <sid>2022580</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1291b831-5003-4460-975f-b1d216592d13">
+          <sid>2022579</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="41b25d69-3512-416a-aa09-6d6358a486dd">
+          <sid>2022243</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="c9bbc07f-3052-43e9-8f41-f537a4f2965e">
+          <sid>2022240</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="c162a06d-9276-4d68-a1ae-18639e4e90be">
+          <sid>2021949</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="01d61359-f18d-480f-ac58-106c7f79a6b6">
+          <sid>2021058</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="879ea3be-36e8-4ced-9bc1-8efbfdba9afb">
+          <sid>2021024</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e97e8adb-59c1-4174-812c-8ea1295dbb39">
+          <sid>2021023</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5fadc28f-cd5f-4921-bf1e-b162db8ec3e5">
+          <sid>2020853</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d418adf6-587c-48eb-a79f-fa4dda1b3fc8">
+          <sid>2019963</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f9fa3d3f-1ed7-4e42-9e61-c5ae1826bf16">
+          <sid>2019876</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f6727c8d-dbd2-4ca5-841a-89c196390680">
+          <sid>2018800</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="95c237bd-7132-4bc6-af9d-da151dfb2351">
+          <sid>2018782</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="12dc5ef2-f310-4d24-8aa4-ffaa77e353a5">
+          <sid>2018755</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a5c35baa-d505-4615-b440-c2bc8cb0ea27">
+          <sid>2018754</sid>
+          <enabled>0</enabled>
+          <action>alert</action>
+        </rule>
+        <rule uuid="f079f627-cbcd-44b6-99c9-0b24687312ed">
+          <sid>2018489</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="b658f326-ba28-48c9-b72f-45f19e9123c2">
+          <sid>2018318</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="709b2fdd-1fd6-4df0-bfec-98493d5c8b0d">
+          <sid>2018317</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5c117a6d-4a28-46da-aa94-b70a7d77a935">
+          <sid>2017950</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2c7bef2a-b271-46ae-a589-948b8c4fa08d">
+          <sid>2017616</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2a6e6599-8d1b-4226-b319-8dd5b467ed81">
+          <sid>2017615</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dc58993d-cb7a-473c-af10-0741c9d5b42f">
+          <sid>2017162</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="92443012-c777-4189-8754-377b65260f45">
+          <sid>2017161</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5414697d-51b1-4c3b-87fa-4054797d5b97">
+          <sid>2016222</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="260dc944-6258-45bb-b6f6-e079d8548eae">
+          <sid>2016033</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1a45b34e-2597-45ca-921c-68dba93a1045">
+          <sid>2016032</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="7ec96e61-f18b-4417-9a65-a42de498d69e">
+          <sid>2015986</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6f5e1f00-7015-4e81-9487-c642fc074679">
+          <sid>2015940</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4f416987-99de-4f96-ba9d-d27021860719">
+          <sid>2015754</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="00d5a232-db5a-4a7d-abdd-08a302bf1ae8">
+          <sid>2015702</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5beeb8e2-1a46-470c-abc9-186036b8a819">
+          <sid>2015552</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dc8c6284-29e0-436a-a390-7842e41f748c">
+          <sid>2015484</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2c72b6fb-141f-43ca-b38b-6bdf6a8de714">
+          <sid>2014869</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="030a6a88-bbd4-4734-bedd-fe4bbd0025da">
+          <sid>2014541</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1cef0fda-86b8-4cb1-8cfa-7f0915844a07">
+          <sid>2013792</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="de9e1155-b80c-4efe-a5ab-9a2faa13b5a1">
+          <sid>2013791</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6f160a09-7e37-427c-850d-f8ed7943525c">
+          <sid>2013779</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a88e9b1d-c28c-4725-bc18-93bf137e3e7b">
+          <sid>2013778</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a7eec380-774a-474d-b464-7bc112599382">
+          <sid>2013492</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3b9248cc-f7a1-403a-8fda-19b5b5bfecc3">
+          <sid>2013479</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ed644733-80cd-4058-87d7-ef2683cd12b7">
+          <sid>2013473</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="977b05a0-ddd5-4aad-8884-4ec4ec54384f">
+          <sid>2013472</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="804c1ab4-301f-47ef-8b3e-d1f92597a509">
+          <sid>2013416</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="240310a7-bc9a-49c2-a617-f25a4f111cef">
+          <sid>2013264</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d7ee3229-a65f-4b49-8c94-47251070ffb5">
+          <sid>2013263</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3f24d28a-8e12-4b3c-8076-a0bc164a7042">
+          <sid>2013249</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="db81427a-8902-4e06-ae1f-59fda7f9c841">
+          <sid>2013171</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1badecb6-e976-4fdd-9393-96ddcff03973">
+          <sid>2012937</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9117721b-690f-4721-a7a5-2c66a97554f2">
+          <sid>2012936</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9bf9e0f5-eb94-4c08-912f-46a620d6915f">
+          <sid>2012754</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a00bdbc5-56e3-4049-8de5-100f3427dc1d">
+          <sid>2012726</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="7eeab505-4cd3-455f-80b5-1407ae552350">
+          <sid>2012606</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4de44546-49a0-41e4-bd19-456ced78adc3">
+          <sid>2012204</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="497cbc87-684a-45de-8c29-bd899a98cc86">
+          <sid>2012077</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="72bfb304-e700-41dc-9667-3744a6376ec5">
+          <sid>2011975</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="06668d97-63fd-4b3e-9bf4-4cb3d66d3c23">
+          <sid>2011974</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a8ee26e8-7678-4880-83cc-538939c23df5">
+          <sid>2011924</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="b8ec0b23-18d5-4dac-b440-d8399df18ac8">
+          <sid>2011915</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="72acab3a-24c4-4d46-928b-2efc3240e9bc">
+          <sid>2011914</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="967815e7-8163-4de3-8fff-0382aafedcf7">
+          <sid>2011887</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dcdda6f0-50a3-48e7-baa1-c68ae0857b68">
+          <sid>2011809</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="42e4cb3f-f68f-4c91-9b16-9aae4871cd43">
+          <sid>2011808</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="58a14626-4b76-4917-b94e-f8c2b9967f21">
+          <sid>2011766</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="10f086cd-566e-4c96-8274-2cdd094f762e">
+          <sid>2011721</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1fb9a191-9b48-4814-b803-9b0262587b4e">
+          <sid>2011720</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d00e01e9-c503-4d73-8db7-abd75989f80a">
+          <sid>2011716</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1b30444f-c0de-4557-bab8-730da2e13051">
+          <sid>2011497</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="43bcd731-46a3-4def-91d1-81e3703463a0">
+          <sid>2011390</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9a6f5ca4-29be-4c5f-bf1b-a609de38ebb6">
+          <sid>2011389</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9c0bba22-fd89-4d09-8ae1-4e5a3a12b056">
+          <sid>2011089</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="71dafaa4-081d-4734-826c-ef53fc9d765e">
+          <sid>2011088</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="60bc5d41-7359-4b9a-a8cf-899c901f94db">
+          <sid>2011030</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f91be96b-e5b4-4a29-ae4c-b3f2874a45df">
+          <sid>2011029</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1435c49e-417c-4a18-a6bf-f93b1ca742f0">
+          <sid>2011028</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="322fd9a3-89b1-4f43-94c9-269275800374">
+          <sid>2011027</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="19902243-078d-437f-9794-2c9db54da635">
+          <sid>2010960</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="69dfd23e-c74b-4eb9-8940-6b5cb810cf90">
+          <sid>2010956</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1ea7fdd6-4767-4520-b6ab-3c3fa44ca42a">
+          <sid>2010954</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4af6776a-d62d-4b62-80cf-1ca56f1cbfe9">
+          <sid>2010953</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d734a054-8d79-471d-9dc3-ebdca2cbf9d7">
+          <sid>2010939</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2481d2ea-2187-4a4c-a065-3d6e5ec87c25">
+          <sid>2010938</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5124b2f8-bb17-40f9-9108-e880af20196b">
+          <sid>2010937</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5aefe68f-cce3-491e-950d-54068769e55b">
+          <sid>2010936</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9134f4a6-5a2e-4d78-9998-5f5930fd5666">
+          <sid>2010935</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="17aa188a-96d0-49a4-aa31-7d34661a8444">
+          <sid>2010768</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9f3205ca-a072-4ca8-9587-a279e84ea255">
+          <sid>2010715</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5c535d60-f54b-444a-b428-a2b835c51fd7">
+          <sid>2010686</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e882c391-2530-4682-81e2-be9770ad5c35">
+          <sid>2010681</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f78ec116-2ab2-4ac2-875f-554bfbcce192">
+          <sid>2010643</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3f3e8c1c-615e-49ea-b470-ff130e9e1561">
+          <sid>2010642</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6b7786d2-574d-4930-8521-c9ef43943012">
+          <sid>2010641</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4104551d-960a-40ff-85b3-f7389c34ee37">
+          <sid>2010508</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="edab666a-4e82-4797-b98b-5aba6812af3f">
+          <sid>2010494</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="11fddb61-ee16-4a57-96aa-13d9803740c9">
+          <sid>2010493</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9ea99d95-7830-49b5-ac27-d5c114537284">
+          <sid>2010372</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="b0e25aca-8959-4b94-bfba-c4bc3bd3bc54">
+          <sid>2010371</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="13d2fbfe-f631-4477-b081-52c90a9d6e91">
+          <sid>2010215</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f4295462-50d5-45a5-b29e-3d00e135b966">
+          <sid>2010089</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="0e26453b-e07f-4ce9-9a37-d81801051b7c">
+          <sid>2010088</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d121fa4b-2657-48c8-9837-1d5f42619248">
+          <sid>2010087</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="acce4b41-041b-413b-bd8d-be49fe645605">
+          <sid>2010019</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ea338460-3edd-456a-b4b1-53b724d7da79">
+          <sid>2009883</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e836dd8f-536e-47c9-bdb8-c1225ad9c01c">
+          <sid>2009882</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="b8e16d90-0377-41cf-8aa8-4337219915f8">
+          <sid>2009833</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e5e505e3-ea39-4f0c-80c0-aefa3db3e612">
+          <sid>2009832</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e98eb407-da0c-4a68-ab47-db9d57de6c18">
+          <sid>2009827</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d8a307e3-b94d-4ba6-b216-460822c0c6d9">
+          <sid>2009769</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dc2015dd-c548-48c8-88dc-18e382345f01">
+          <sid>2009646</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3eb258b1-b675-4d77-b97d-de74c552d1cc">
+          <sid>2009555</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2dd60752-4abe-43b9-a4ea-43e5b659416f">
+          <sid>2009483</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3f02699a-5e93-49e4-b615-f9107de2a5e7">
+          <sid>2009481</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a6c16d03-2a3d-4c85-a72b-bed682f94105">
+          <sid>2009480</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="93281681-7cbb-4e4e-8dad-d4fbdd0327d2">
+          <sid>2009479</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6eda2846-a1d6-4e00-a1c3-b2096679ff1f">
+          <sid>2009477</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="43184244-3068-48d9-90ec-198b9757804d">
+          <sid>2009359</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1d60261a-893a-415c-9ca4-9b7e5595f9fb">
+          <sid>2009358</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4d47e101-2b8c-4928-b749-d16be0905b3d">
+          <sid>2009298</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="91b84145-770e-40f4-acf5-2a1c4943ec2d">
+          <sid>2009220</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="175a7468-f129-4bd8-a11a-b7ff08ddc953">
+          <sid>2009218</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ebe32759-3507-48dd-9df0-8fbc335f27f5">
+          <sid>2009217</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="898eb172-26df-4bd0-b2ab-cf2dcbbf17aa">
+          <sid>2009159</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a29de94e-feac-4454-b6f8-4335fc327bde">
+          <sid>2009158</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="99f3bde7-4eaa-4523-abe7-c5747512aa4a">
+          <sid>2009154</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="88353c17-9000-4b05-87d0-41e2047bf1bf">
+          <sid>2009044</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="c5339605-0f6c-4fa0-838b-d8f52a193bd3">
+          <sid>2009043</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9c686e9c-9a0f-44a9-a184-169d08261875">
+          <sid>2009042</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="086ace26-5055-4dfe-bc0f-3909d67d0c30">
+          <sid>2009041</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3f24c931-295d-4883-804a-d580e9124bae">
+          <sid>2009040</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f8a07bc7-850c-48cb-b6cd-a00f13120a4e">
+          <sid>2009039</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9c1d77a5-3dca-4b4c-b6bc-98602e1763df">
+          <sid>2009038</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="703a16df-df45-4fb8-9675-036b8c08508c">
+          <sid>2008729</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="808dc9fe-b0b2-4429-9a4a-755172b5aa92">
+          <sid>2008654</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e0602dcc-bace-4d6b-ac5c-ff0f57e063c1">
+          <sid>2008641</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6053f69e-b1c2-476b-819c-5609333ae04c">
+          <sid>2008640</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dfa17f4e-8235-44d3-bb54-32ee80d22fbd">
+          <sid>2008629</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="399265ff-7ac1-4c55-b021-203a071e549f">
+          <sid>2008628</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9d916dfd-8134-4cd1-850a-24823ab1d5fd">
+          <sid>2008627</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="71748333-ef0c-490f-b53d-9fc72ddbe92f">
+          <sid>2008617</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="48dc0684-b0f2-4bdd-9479-899967786e8f">
+          <sid>2008610</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="81bcf19b-7c2f-424f-827c-1d382caf0cbc">
+          <sid>2008609</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2d0ac89e-0a91-4d3c-98c5-ad518b144a77">
+          <sid>2008606</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dce76d00-af1c-4a02-a708-5c8c6debf0e6">
+          <sid>2008605</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3cf2e8ad-b0b4-476b-9bb8-c1436768f7a8">
+          <sid>2008598</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ab82cbc6-1ea3-4669-bb9e-9e6aa42acb0f">
+          <sid>2008579</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a9bdb107-1ce3-4a12-9021-be7fd304a775">
+          <sid>2008578</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4580e2f8-145d-4643-9ca0-fb2bee440958">
+          <sid>2008577</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="29ce2560-4bcc-4ff1-a4f8-b71a1994ca13">
+          <sid>2008571</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="137e7a65-9418-4d3b-b2e0-fe884509472b">
+          <sid>2008568</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9605b47a-9baa-4113-8ad3-a074d99f0430">
+          <sid>2008560</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="eebe2af8-d8f8-4364-9514-7f9cb704a1b7">
+          <sid>2008538</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9d696013-1b1e-43ad-8789-b763369342df">
+          <sid>2008537</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="bdbd89e0-5844-4726-9a6d-5aa64673f294">
+          <sid>2008529</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="8413cfa9-3866-4769-befd-106787191013">
+          <sid>2008526</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="de6a88cc-5f8c-45cf-b2f6-202cfc15d6b0">
+          <sid>2008455</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="22a4097d-c6ec-4d20-ab2d-e36fa81a1905">
+          <sid>2008454</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="39fc8e04-392e-470a-b568-b3f382aeb754">
+          <sid>2008453</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="14afe269-9760-40dd-a66a-e29898d7f264">
+          <sid>2008417</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="63da81ef-35f7-4ccf-bcc2-e1d4655b9123">
+          <sid>2008416</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="22c4f43a-945d-4822-a943-162f3359f0bd">
+          <sid>2008415</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f3f9ee01-73f3-4d5f-9b59-d22a082afe7b">
+          <sid>2008414</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="55aff5e0-f826-490f-94dd-75becc5ff9a1">
+          <sid>2008362</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dc095292-7569-4e2e-9524-c9ccee6a6070">
+          <sid>2008312</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="9b279e67-dbea-487f-9abd-67f3908d6f82">
+          <sid>2008311</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="b8266140-cc4c-4d84-b3e5-7a8f84a0112b">
+          <sid>2008228</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="dda03c34-7747-49c7-86f3-7666690deab7">
+          <sid>2008187</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="567640ac-b5e3-4e5f-b499-4f95662f1f80">
+          <sid>2008186</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="416d628b-070e-4569-87b3-38e71a5799e2">
+          <sid>2008179</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="841bdedc-1c85-4138-a4b0-0c7a10747cc9">
+          <sid>2008094</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="eb470524-1964-4488-9730-1c1f5aa71945">
+          <sid>2008093</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="56f5649a-82cf-4b08-8084-6532f173bffc">
+          <sid>2008092</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="423be9af-1603-4e76-b858-eb0010bc0d5b">
+          <sid>2007802</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="162eb789-29d0-4d68-b7b4-3d10912b77f2">
+          <sid>2007757</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d5746aec-204b-4ea4-8d3d-d1bfc266e232">
+          <sid>2006546</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e6b172a8-bb71-4deb-9081-817cabed8f79">
+          <sid>2003924</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ccd81765-2918-4a32-86f6-ac6d4e9c26d4">
+          <sid>2003869</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4dec7951-6468-4ddd-aef3-c1b5603c5fef">
+          <sid>2003634</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4afbf63f-beaf-4904-bdc8-5f1f76fe66ee">
+          <sid>2003466</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="19317c34-e98c-4821-a45b-4719f6059dcc">
+          <sid>2003171</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="55ff655e-a273-42e4-91de-5f03c2229316">
+          <sid>2003068</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f69892db-770d-4f25-93b6-b6bfa7cb83c0">
+          <sid>2002995</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="367c4796-1b9a-469b-a92e-0894d31aa260">
+          <sid>2002994</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="63197f63-c2e1-4915-8b90-7eacbc6b2505">
+          <sid>2002993</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="ba9629fc-f592-480d-9699-0016e276cc7f">
+          <sid>2002992</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="fef8c5d5-da53-4dcc-a860-8c1ec89df657">
+          <sid>2002911</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="be6c234c-c063-487f-ae64-4ee31eaee12f">
+          <sid>2002910</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a179045f-9427-44dd-a631-5c4445ce4325">
+          <sid>2002842</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4ac70708-ef54-40c0-a25e-1ebfffd89d8b">
+          <sid>2002677</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="a78629ae-f4b0-4f7f-894f-305cee0dd4cb">
+          <sid>2002664</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4ebde48c-5294-49cb-bb92-405f8afad4a4">
+          <sid>2002383</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="78f35c00-b76e-41fe-b533-3a45114d09b8">
+          <sid>2001972</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="7259157d-fbc3-4ff8-9636-a037f7aa709c">
+          <sid>2001906</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="55647720-7c3f-4bf5-b845-869d0144da84">
+          <sid>2001583</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="add77745-c4d8-46bf-a569-ae218b12ae00">
+          <sid>2001582</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="61b55148-8c29-4bcf-992d-3e3078f8e2a6">
+          <sid>2001581</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="365ac663-0103-4295-8c4b-2a250140ba6c">
+          <sid>2001580</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="3f371770-0d64-42ef-96ea-58ae2a99a6ba">
+          <sid>2001579</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e1c71f92-4148-4d36-a796-a5b6fd2aa322">
+          <sid>2001569</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="82c79ebf-353f-482a-96cf-728ca46fb420">
+          <sid>2001219</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="8e698854-3cff-4809-bad3-c5ff19c15817">
+          <sid>2000575</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="0bf08097-07ca-4040-aa66-fa56f59fe00b">
+          <sid>2102585</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="e3c44097-4672-4081-8268-1fcb718b6e28">
+          <sid>2101918</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="13d91735-4e1c-410c-ab84-154586aab1eb">
+          <sid>2101638</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="1079e5a1-893d-42a4-9835-6385f51ca081">
+          <sid>2101102</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="5f0ac60e-c418-4389-8f73-521a3c99d21b">
+          <sid>2100617</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6ca36051-42b3-4c64-bcda-08e2e095300e">
+          <sid>2100484</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="267df328-cfc0-469d-be88-23c72d7fcd36">
+          <sid>2100483</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="f9b84a81-a5cb-4846-9704-746c5104a9bc">
+          <sid>2100476</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="cd100b91-6aa8-4d42-8ca6-8db7489352fe">
+          <sid>2100474</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="2d570e61-10f8-4be3-bd4e-1de9a78deca0">
+          <sid>2100465</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="4488b501-7e92-49ac-a549-18549d0bfeb6">
+          <sid>2100372</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="6a928540-a60d-4457-90d9-744c164efad1">
+          <sid>2100353</sid>
+          <enabled>0</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="d349eb8d-c7e4-44b7-be0f-09c85745bbba">
+          <sid>2000538</sid>
+          <enabled>1</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="bd69d63c-2fca-4ed6-9352-fbd80dd9f8f4">
+          <sid>2000540</sid>
+          <enabled>1</enabled>
+          <action>drop</action>
+        </rule>
+        <rule uuid="b6464a32-032b-402e-b204-9e4aa7cf1f0a">
+          <sid>2000545</sid>
+          <enabled>1</enabled>
+          <action>drop</action>
+        </rule>
+      </rules>
+      <userDefinedRules/>
+      <files>
+        <file uuid="ef50c82d-d1b5-40d9-82da-12333f08779e">
+          <filename>emerging-malware.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="ccbe6338-38a1-4329-8aa1-eaeb44cd8e9d">
+          <filename>emerging-shellcode.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="a9d84608-74e4-4e47-a3b0-de782f9c949d">
+          <filename>emerging-trojan.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="41294681-5b58-4531-bed2-1347a227a61d">
+          <filename>abuse.ch.urlhaus.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="cfbdfde5-dad3-43eb-bf23-a77019dee74c">
+          <filename>abuse.ch.feodotracker.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="83d006f1-0c4f-4144-8008-d680ae158d96">
+          <filename>abuse.ch.sslblacklist.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="b220c1df-6227-4280-adf8-eaccc4084bcf">
+          <filename>abuse.ch.sslipblacklist.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="5b631d37-d9cd-4bf3-ba34-f72d7cf35571">
+          <filename>opnsense.uncategorized.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="c1cd01fb-86ad-42e0-a380-f85701ab9ab3">
+          <filename>opnsense.test.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="7963993a-352f-462e-a94f-a2fb159a0a03">
+          <filename>opnsense.social_media.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="838b64ed-3fc4-45a6-9583-d8772a809398">
+          <filename>opnsense.messaging.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="be31d065-45f9-44c5-a699-a87600771167">
+          <filename>opnsense.media_streaming.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="51600d69-1f21-4db1-b4ec-6978b333eec0">
+          <filename>opnsense.mail.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="e6ab38ed-584a-45d8-84d4-78f880216a7b">
+          <filename>opnsense.file_transfer.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="81402b09-f916-4dc1-a0be-1303ed45b871">
+          <filename>tor.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="6050fbb2-7777-4bd1-b086-cb56620f33ec">
+          <filename>emerging-worm.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="3dfe631e-c91a-46b1-8d96-9ccba8ea0a58">
+          <filename>emerging-web_specific_apps.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="95f7904e-f5d2-4d73-b472-deb79524d34f">
+          <filename>emerging-web_server.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="2525676c-b8c0-4761-94b0-f8892273a226">
+          <filename>emerging-web_client.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="f0cd87f9-4734-4900-8118-38777d7c02f2">
+          <filename>emerging-voip.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="d908a63d-2138-48b1-b60b-ab188fa388a8">
+          <filename>emerging-user_agents.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="154ed7bb-237b-4486-b7a7-7d9470c1bbca">
+          <filename>emerging-tftp.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="049a08cf-b7f7-451c-90bd-10f2ea20fe3e">
+          <filename>emerging-telnet.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="d0bb912c-6cd0-40d0-bc80-282bdb29c67c">
+          <filename>emerging-sql.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="7642c483-f067-4086-9f90-25eb2f095884">
+          <filename>emerging-snmp.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="cf493293-276f-4e1d-9648-d23615b7a78d">
+          <filename>emerging-smtp.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="15f3bc91-49c2-4ae1-8042-51b3c2c3c745">
+          <filename>emerging-scan.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="7fff7d79-81aa-45cd-b785-7825f49341f9">
+          <filename>emerging-scada.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="6d16c89d-0bbf-4266-8388-c3b9ad7806e2">
+          <filename>emerging-rpc.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="b5c88a48-6161-4d5c-adab-fa199debc261">
+          <filename>emerging-pop3.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="5be28091-ef02-4c10-a3a8-f03655ab8ff7">
+          <filename>emerging-policy.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="68ca3b78-6a57-424b-9a0e-e088bc7627de">
+          <filename>emerging-p2p.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="1d0642f6-a105-444c-a796-f72111335154">
+          <filename>emerging-netbios.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="62ff9f7e-5e33-42a5-a37a-b98620aa0ae2">
+          <filename>emerging-mobile_malware.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="af33e881-ae64-428b-a461-d97f2df21d44">
+          <filename>emerging-misc.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="31d53691-a8b3-413d-ab5b-516c9da35124">
+          <filename>emerging-info.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="9fbcf4ff-fd48-4732-b84d-74f916d49108">
+          <filename>emerging-inappropriate.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="57dedd52-9d0f-4601-9bdd-37ab80eb47ce">
+          <filename>emerging-imap.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="cb0b5718-9e18-4785-b5c7-36959a7e0227">
+          <filename>emerging-icmp_info.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="d8d4d751-d0e4-4744-85f9-fd908beb6035">
+          <filename>emerging-icmp.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="f7bb5ac4-b697-4ebc-96a7-5d4729a97f9a">
+          <filename>emerging-games.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="a01d3976-42a3-4de0-bd9f-cfae7914c58e">
+          <filename>emerging-ftp.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="06a87c27-ffc2-4f8e-bf5d-d9a85cfc8ed5">
+          <filename>emerging-exploit.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="c9723a32-4576-4741-a2cf-7e5888a3bf83">
+          <filename>emerging-dos.rules</filename>
+          <filter>drop</filter>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="4fb4d242-8865-40e3-89d3-d974708c4ee5">
+          <filename>emerging-dns.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="d42bb6ab-2b6c-4f4c-9818-c5c119f381b8">
+          <filename>emerging-deleted.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="4532a42f-b8bb-4283-90a0-4aaff8aa1b23">
+          <filename>emerging-current_events.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="9db27a7d-a807-437e-aca4-0d53935c687c">
+          <filename>emerging-chat.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="24d3d3b2-bd3d-4e1f-86d4-76a458efcfa2">
+          <filename>emerging-attack_response.rules</filename>
+          <filter>drop</filter>
+          <enabled>1</enabled>
+        </file>
+        <file uuid="0cddc008-a496-47cd-b7a7-e60499716aec">
+          <filename>emerging-activex.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="a80d018d-45c2-43a6-b3a4-7cdb8ea47b71">
+          <filename>dshield.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="5af5b2af-26d6-49c7-99c8-ec07206730e2">
+          <filename>drop.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="18709e90-f133-41bb-85e1-ac13f1e226c0">
+          <filename>compromised.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="e9176bc7-d6cb-4ea4-9546-f71eb1915e40">
+          <filename>ciarmy.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="0cabdb6b-6047-4cac-a45f-a93beb5c8f46">
+          <filename>botcc.portgrouped.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+        <file uuid="7ff09d1a-a0f2-4248-9351-47a87b3d905a">
+          <filename>botcc.rules</filename>
+          <filter/>
+          <enabled>0</enabled>
+        </file>
+      </files>
+      <fileTags/>
+      <general>
+        <enabled>1</enabled>
+        <ips>1</ips>
+        <promisc>1</promisc>
+        <interfaces>lan</interfaces>
+        <homenet>192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.100.1.0/24,100.100.254.0/30,100.100.6.0/24</homenet>
+        <defaultPacketSize/>
+        <UpdateCron>fd10bcea-1a23-4deb-8122-000d01884f3f</UpdateCron>
+        <AlertLogrotate>W0D23</AlertLogrotate>
+        <AlertSaveLogs>4</AlertSaveLogs>
+        <MPMAlgo>ac</MPMAlgo>
+        <syslog>0</syslog>
+        <syslog_eve>0</syslog_eve>
+        <LogPayload>0</LogPayload>
+      </general>
+    </IDS>
+  </OPNsense>
+  <ca>
+    <refid>5ea17c29ba068</refid>
+    <descr>Proxy-test</descr>
+    <crt>LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUR0ekNDQXArZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREIyTVFzd0NRWURWUVFHRXdKSlZERU8KTUF3R0ExVUVDQXdGVEdGNmFXOHhEVEFMQmdOVkJBY01CRkp2YldVeEVEQU9CZ05WQkFvTUIyRmpiV1V0TVRReApJREFlQmdrcWhraUc5dzBCQ1FFV0VXRmpiV1V0TVRSQVoyMWhhV3d1WTI5dE1SUXdFZ1lEVlFRRERBdHBiblJsCmNtNWhiQzFqWVRBZUZ3MHlNREEwTWpNeE1USTVORFZhRncweU1qQTNNamN4TVRJNU5EVmFNSFl4Q3pBSkJnTlYKQkFZVEFrbFVNUTR3REFZRFZRUUlEQVZNWVhwcGJ6RU5NQXNHQTFVRUJ3d0VVbTl0WlRFUU1BNEdBMVVFQ2d3SApZV050WlMweE5ERWdNQjRHQ1NxR1NJYjNEUUVKQVJZUllXTnRaUzB4TkVCbmJXRnBiQzVqYjIweEZEQVNCZ05WCkJBTU1DMmx1ZEdWeWJtRnNMV05oTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEKcytRUGZBSmZZN2FoZXJxbG50b2xQSVpaQ0o5V3JNTmQ4aVYzdjNOd1NHaEVQU1k2VHZSQ0JOeTdINGIxcitkTQp5b3FmNzJtZ2xVc1BHR0dyN2Q5NWhZSWlQS1UvWkFiRGJZYTMyak9uYXdBUU9MMlYrL3h3R0c3c2pXUWFPMFVnCkZicDVyN2hsdlFsMEVNZjZMQm5DUmRrRVg5aUtoZHU1d1NqTFZiYjdtWDhkTWVCcElTekZkbHA2RlFmMTY5eVAKWmtFTDBjMlhYTmVvOEJxVEVRblJtNWJhYlpyeDdpc24zS1NUSkF2NmFoODB4VkIxUVFtTHJrZm1Ob2NBWkFTbgovdGZ6MjRBVDNkdHcvek96Z1BMdUF3ejgyRStTOWJIVnhBdXlvNTUzbzNwQUhFQURmQ3B6NnByekR3UkpXL3BGCjVsU21mcVRjcEhYZHRScTRreHFocHdJREFRQUJvMUF3VGpBZEJnTlZIUTRFRmdRVVJZQ1FDcmtxajhyN1JsSjYKenp2K05VSHBvL1F3SHdZRFZSMGpCQmd3Rm9BVVJZQ1FDcmtxajhyN1JsSjZ6enYrTlVIcG8vUXdEQVlEVlIwVApCQVV3QXdFQi96QU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFVMXN2aWY5S2FMQ0FZK0w0NjhyWnpQQmhOeUFXCnhmclJZQ21wdUNET2tESklkZVZ4ejI1TlYrVTZCZzhKVkdkbDlVNnNCcjlid2k4M0FQcUJiclBpSURnbjdyb3oKMzF5RDJuYW9LSnRtRWxWNSthNEdveCtFbXY3YUVRYjFJNStGbDQyNGJwa0o5QmdrbzNzbjhFNEFYV0JzSy9oNAovdlpBN1FsQ2trbld5QmQvQkdhVFcxaEYySFhTdHkreWozZE8zc0hzS0NFMW9pNXVscWdmbkUxb250OWJvWDlPCmJnTzJBbHB1clF4QUxqcE5iMDFETCt3UWxrRWlRcXF1dnJJNFJDMytrUTY3WWJPaE5hNHg0ZUhOR3VMRFQzdnkKSmFJS3NmMUNJQlVVU1c2Vkh5VU1hRHRzaSs0Y2Z0d2h2cFRtVXFBR056eDIxSHUrVlIybGlIVVR0QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K</crt>
+    <prv>LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRQ3o1QTk4QWw5anRxRjYKdXFXZTJpVThobGtJbjFhc3cxM3lKWGUvYzNCSWFFUTlKanBPOUVJRTNMc2Zodld2NTB6S2lwL3ZhYUNWU3c4WQpZYXZ0MzNtRmdpSThwVDlrQnNOdGhyZmFNNmRyQUJBNHZaWDcvSEFZYnV5TlpCbzdSU0FWdW5tdnVHVzlDWFFRCngvb3NHY0pGMlFSZjJJcUYyN25CS010VnR2dVpmeDB4NEdraExNVjJXbm9WQi9YcjNJOW1RUXZSelpkYzE2ancKR3BNUkNkR2JsdHB0bXZIdUt5ZmNwSk1rQy9wcUh6VEZVSFZCQ1l1dVIrWTJod0JrQktmKzEvUGJnQlBkMjNELwpNN09BOHU0RERQellUNUwxc2RYRUM3S2pubmVqZWtBY1FBTjhLblBxbXZNUEJFbGIra1htVktaK3BOeWtkZDIxCkdyaVRHcUduQWdNQkFBRUNnZ0VCQUxMU0F4NTMwVkR5ekFTUEkzSU1VYldmcTBPcCtPUVY5UDV2aG1EM0pPZWwKVmlnZkp4a3pMNmxicmx1QnNocmc1M0h6YVZiNWZocktHVUJZWHlzLzJiSUFrWDRObWowWmlBMEpQUnVYKzFXZgpJNER6M1BNM2xrcURnWHh2eEsra1lHZVpEYnZDcHNmS2JPajlrVTlqYjc0MUkyY1BmMnZlNXdEL1IxbDJZeGJLCkhYMGZRWU51RWVaemhYT2JFSGNIcmI5QXdac2lFc1NEcWFMaTdIMXFhQUZzY295Mi9YM1VvZEdtdG5sbkhXdFUKRStaWHRGcEdEOVp5RTM3ejhETlJOTnF5UUVWcFpJTXBZdFhlYXRiRWVkQ0JHaHpSVVowY2JiNmZKSEhaY2lROQo0U09OOTVvTTJwWGpRRGR2S3RleFBiaUNNK3ZQUTI5ZndOZ3NxbFllbFlFQ2dZRUEyNllkQjJFaFp1QWRTeC94CmJhSklwdkFYZTZaajhiWklQYzY3Q29jR0pEdU9qaTQzMHg5TnpOR3M3a0xxZzhiTlNiczZuNGZSOVVhUDNqSWkKcE9LVFhuWU12ZjQ0NkVrRW5adHlqeFZoNHV4TFdIeCtyampiUGFBRzhGcVFtajRQRU90dTNKOVovbmdhd1BTbQpTR08wZXpGTjMvODNWZUNSY2t0TEVGQmRLc0VDZ1lFQTBhbUQySkhvcm93NGlmOU1pRVYxZ1h6Q0ZSRjNpdDFGCkh4VkVsRFJtc0dmT3FMQ3h3UmFpU2FNOGZWMzVsRFhRQlczRHNqZEl2Rm5mRTJlcXhscUx4cHp6dkhvcDVpM1QKWlM0SVFjWDhIemRjUkxPS3c3NUZ1eWt1dC9wbWRRWWlZQ3pROTJ5MnFaMEcrczZvbEFMWXhxUVpJUFRlektSdgpibTEyc3BLZjdtY0NnWUEvVUV1djA5eTM5Y1FiNHBKS0l1eEVTcExLVHJVaWVJT3NaVW5mQi9yS09PeW5xVVRvCk0yN09xbVhwckJwRGIrdSs1QnhLM2ZDMGZlbDhpQUVhZkVFMGlseXo2M0xsNmg1TmZBQnlwQnc2T0JpajRnYjIKRzJkL0JRRGJDWkFERmY1cnh5R0dzTnhWRUxQTmlQZmhoL1AvU3NBQzRHTkgrdHFTRW9nSnBOQ21RUUtCZ1FDbQo4YXVpVHN4UDhDYzArcXdkOWZEUzRseElHbGh0b2pMZnhUZU9Ld3Q1ZTY3NmMzZVdvRWNwQzJtbkNhVXBkby9sClFybUl0cXljRFpPckIramJlRTNFSUVXVDFsSjJqaGE5Z2lIZy9aejcza0VDRTFSeStKYmRxTFVpbWFmcmxxN1kKbGRidXJRbmxsTHR5Q2d3Qmp5SzlTUDBaV09IdllSKzVka0FGZ09zSUVRS0JnRE9vaXlidUE4NzdYNFlNRENrdAp6SFI5WDNkTU5uQ3VNZEp1UXNJUG4xaVZNdS9sN0w5TTBOZXhIUjZMSjVNbnU3aEp3L1g0RkIvS3dHcnVTVklwCm0rOXV1alBDZFJ5MGhNTm9IQTBxTkVTSzhRdmR6NDFXcmo2ZWI2clY0NlVNR01mTXAvcmZJRmRUL094Q3pZd0sKak5YOFZBSFE5SjgxZk9MbUlkZkJlai9iCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K</prv>
+    <serial>0</serial>
+  </ca>
+  <gateways>
+    <gateway_item>
+      <descr>Interface WAN Gateway</descr>
+      <defaultgw>1</defaultgw>
+      <ipprotocol>inet</ipprotocol>
+      <interface>wan</interface>
+      <gateway>100.100.254.1</gateway>
+      <monitor_disable>1</monitor_disable>
+      <name>GW_WAN</name>
+      <interval>1</interval>
+      <weight>1</weight>
+    </gateway_item>
+  </gateways>
+  <cert>
+    <refid>5e419b7cd7253</refid>
+    <descr>Web GUI SSL certificate</descr>
+    <crt>LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUdYRENDQkVTZ0F3SUJBZ0lVSkZVa1BhakNWczNXRUdXZ1VOQkVMa0dUR3Mwd0RRWUpLb1pJaHZjTkFRRUwKQlFBd1RqRUxNQWtHQTFVRUJoTUNUa3d4RlRBVEJnTlZCQWdNREZwMWFXUXRTRzlzYkdGdVpERVZNQk1HQTFVRQpCd3dNVFdsa1pHVnNhR0Z5Ym1sek1SRXdEd1lEVlFRS0RBaFBVRTV6Wlc1elpUQWVGdzB5TURBeU1UQXhPREExCk5URmFGdzB5TWpBMU1UVXhPREExTlRGYU1FNHhDekFKQmdOVkJBWVRBazVNTVJVd0V3WURWUVFJREF4YWRXbGsKTFVodmJHeGhibVF4RlRBVEJnTlZCQWNNREUxcFpHUmxiR2hoY201cGN6RVJNQThHQTFVRUNnd0lUMUJPYzJWdQpjMlV3Z2dJaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQ0R3QXdnZ0lLQW9JQ0FRQ3ZkcUJmS0lNWmc3bkZmMnA3CnNnZlNuSTBNU1BzRThDUkVHOVJadS90OXQvZVdpL0xDN3FJaThtakozTHJJd29laDBLbkNCc3lpcnJ3a2dWY1cKOGpUZDZ2OVlkOGlYWWRpdVZJdHVlOHV1Z3JpaVpFZGp4bjJuOENaZnNKQ0RGVVZac0o2b2l5SEZYWlo1anJFMQorUlJJZllDNk1TNzR3cEw1eUdjQXlLWUwvYU9LVUNIbUFUNXdLL1g5WE5RVzRocithS1JzdDRSN1hDTlVwWmpsCkgzanJ0emNXSmlGU21yVlA4UnVuSVdwUGwxcnQwOWRvOGZBSUxsWEF3Q2Q0RWIvRmpWYnFkbWJ4ZWpZM2pTWS8KMC9JcEF0U043a00zdjFvdW1MVlEwbWY1dEUvTHlFT014aWl1VkpCMkhPMnVsZTI0RUNXZFQ3MWowMG9mQ0daZwpZNmZoZEdVeVNwaG5jWk8rNUREdzdaS3RwR2tvZnZtbjBIZFhuN3lZeFk3UVZoVE5PQWRuelhPTno0UlRoNVpTCkQvdVM5SmVrK04vcGNGS2RPZHFVNk9GQ1VZdnBheXhZVWY2VkVZcmNBc2tKTWlTdkRZUU5zYWJUV0h5OGIwdkwKbTVOVjRreThreG1wMWJoaXZTbXFNN0lNN1laYlhhWDBqTEgzV2F5TGF5Q2xmMW5ydGFSWUNRbUdBdFRyQTRtbwpkTWc2eUd0UEN0MUJNc0pnTzBORUErSm5IaUFpTCtKUlg0RW01QVNCTWJZYW9mNWlzTHRYRHpVNzVnaU1KR1g3Cm1XbjAvZ01rd0ZBc1hhMDZlNW1SRWtZZitQcHliaXYvWWZpcTN5aWFhaTdMT0o3T3IzZDFkN1pGSjVLTXNrVlkKNWIySWtxd3VnZGRlM2tqa1Qrek9YNGRucHdJREFRQUJvNElCTURDQ0FTd3dDUVlEVlIwVEJBSXdBREFSQmdsZwpoa2dCaHZoQ0FRRUVCQU1DQmtBd013WUpZSVpJQVliNFFnRU5CQ1lXSkU5d1pXNVRVMHdnUjJWdVpYSmhkR1ZrCklGTmxjblpsY2lCRFpYSjBhV1pwWTJGMFpUQWRCZ05WSFE0RUZnUVVuZ3hIclMxRkdhZm5Jb0YwYnNQK29uM0wKTkYwd2dZc0dBMVVkSXdTQmd6Q0JnSUFVbmd4SHJTMUZHYWZuSW9GMGJzUCtvbjNMTkYyaFVxUlFNRTR4Q3pBSgpCZ05WQkFZVEFrNU1NUlV3RXdZRFZRUUlEQXhhZFdsa0xVaHZiR3hoYm1ReEZUQVRCZ05WQkFjTURFMXBaR1JsCmJHaGhjbTVwY3pFUk1BOEdBMVVFQ2d3SVQxQk9jMlZ1YzJXQ0ZDUlZKRDJvd2xiTjFoQmxvRkRRUkM1Qmt4ck4KTUIwR0ExVWRKUVFXTUJRR0NDc0dBUVVGQndNQkJnZ3JCZ0VGQlFnQ0FqQUxCZ05WSFE4RUJBTUNCYUF3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dJQkFHbXhlbStzZkVmdjQ2UUFUck1PbHlkYklLOG53YmtxeXRQYS9QMEdjN1FjCkxoRWFLcUFpeGw0bkg0OFQrSy9zVmNueEc5NVhzSk5CbjNYQ3liYnIzRmJLdHdlTVZiUUg4UElpVTl2OFlLSlkKbTRxaUNIZE5XTUE1TjBMYVBlcVpRYjV5Zm9PcmkrTEJoR0lHUUJWMEM3VGFuaGRnRUtiSm9IeWt0akpJaDNldApIeEozVDJLOVlqOG15UStZOTlJc1dQU2l5RG5pQUJOcnNyM3pSajByb1dCTmNYazZyOUx3MlBoNld2WjB0cnRLCm16TjVBdldpMGZaVGpwT3kzZE1YdS9RNUlwSkgwdU45WkVQOU9HN2ljRi9jeit4Zm5XU09nWVN4RXF2RktiOU4KcFc2dVRsNis0T2lLeUoxWmp1ZWJwUDl0OGxHTHcvaFlEcFpZQmFtdGtyaGNQSFhqWVBicEVVMS9SSXFvQmdDMQpqUmo5RUdZbFA3TENaRUtWNHZDMkE3M21jaVcveDV4cjR4U1FDNmQ2TmtDTmdZWTZ4UHhOZzN6MnBmSWFRM3JCCnZoK1Z5MHdzTmRPK3lXNTZnc042Mm5WU0NOUFIxNzg0TFkvVHZ1eXBsdVZna2U2M3RlUFdxbDZJWDF4RUNFMXUKZ0I1Y3RGTGxWSnFjT290eVo0Sk5vanI0cHZDRDc0ZFF3TTRzcGJZRlVyNlNLSlJuWnRRYSszV0c0dm1BWFVLdApqWFJSelJDVW9WdTkwTWl6eUF6eEdQUHo2alNPR3dQd0VLSnR4VTdmc3VpRFVpWno3ZzJhdHY1Mkp5dW1GY2pqCi9XRWkyUURmTis5eFJOSFNtWW5Jd3pwUGU4b1FiVWlBcklIMnp2M3ZXTHRqOVZObTAwcFBJZjNwWk1CS2dDKzgKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=</crt>
+    <prv>LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUpRZ0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQ1N3d2dna29BZ0VBQW9JQ0FRQ3ZkcUJmS0lNWmc3bkYKZjJwN3NnZlNuSTBNU1BzRThDUkVHOVJadS90OXQvZVdpL0xDN3FJaThtakozTHJJd29laDBLbkNCc3lpcnJ3awpnVmNXOGpUZDZ2OVlkOGlYWWRpdVZJdHVlOHV1Z3JpaVpFZGp4bjJuOENaZnNKQ0RGVVZac0o2b2l5SEZYWlo1CmpyRTErUlJJZllDNk1TNzR3cEw1eUdjQXlLWUwvYU9LVUNIbUFUNXdLL1g5WE5RVzRocithS1JzdDRSN1hDTlUKcFpqbEgzanJ0emNXSmlGU21yVlA4UnVuSVdwUGwxcnQwOWRvOGZBSUxsWEF3Q2Q0RWIvRmpWYnFkbWJ4ZWpZMwpqU1kvMC9JcEF0U043a00zdjFvdW1MVlEwbWY1dEUvTHlFT014aWl1VkpCMkhPMnVsZTI0RUNXZFQ3MWowMG9mCkNHWmdZNmZoZEdVeVNwaG5jWk8rNUREdzdaS3RwR2tvZnZtbjBIZFhuN3lZeFk3UVZoVE5PQWRuelhPTno0UlQKaDVaU0QvdVM5SmVrK04vcGNGS2RPZHFVNk9GQ1VZdnBheXhZVWY2VkVZcmNBc2tKTWlTdkRZUU5zYWJUV0h5OApiMHZMbTVOVjRreThreG1wMWJoaXZTbXFNN0lNN1laYlhhWDBqTEgzV2F5TGF5Q2xmMW5ydGFSWUNRbUdBdFRyCkE0bW9kTWc2eUd0UEN0MUJNc0pnTzBORUErSm5IaUFpTCtKUlg0RW01QVNCTWJZYW9mNWlzTHRYRHpVNzVnaU0KSkdYN21XbjAvZ01rd0ZBc1hhMDZlNW1SRWtZZitQcHliaXYvWWZpcTN5aWFhaTdMT0o3T3IzZDFkN1pGSjVLTQpza1ZZNWIySWtxd3VnZGRlM2tqa1Qrek9YNGRucHdJREFRQUJBb0lDQUE5cEg5Uzd2aWZ6aGRGdXkyOXB4MzRiCitkZG1ZWVdoZ2MzcGs5RDl6YXpSQjVIVllORDJISTl0TXY3bndBLzU1ZWUwWi9SK25HSjlibERXZTB1c29qQUwKZjduSmEzakFRME9zY1VLVzVPREM0bXlBMmpSTkxxUWRWNEY0QkhrKzJRUnptcnU2M0pCMUU4NUJWaGNqZFVDWQpwVUcxS0NiNUQrZVlUbE9uUzg0cHpMOU5JbTBORnVyTE1hTzdEM1dqRGpQaUJPNzNmMDlHWEdRRzExTG9YTHAzCk1RTmsvZkEvWGtWVEs5YVYvTHhZMHNlb24zYThLUlRPM1FFODN6cVFkSU5wVW9UdE9VVmtNbmJXa3RGd1VBaUMKRXlFVUdCdEJWeTVZZ3pSQ0JwZkwybVpQaEg5TXVDMzNoMmlZU2RmWG16VmJWYkpuV243MkE4Q09BRS9lOE5PYQovMUpEVTRON2ZDaUN2UmlIK3h3WnVjNXJjbk13TGdsLy9wQmhaV010c3dxYkRod1VoTkhnRFkycVF0czJlakNMClo5OEdwOEw3L25OeEdMeXhyVndjaFVUVXJtdkNkMnVvamc4amJQaE5RK1BOejFvb2plTDllWXhuVjlDVzJxT2EKNGY0OTc2M1RpVEswMjNHL2ROcHQ3TFBHUW15c2d0dFViYVJBMWRyUDhPQVpwazBIMmdEMmtKdTZGZVJwaVliYQo4dG1DQWZJS2QxWmtsc2x0Szd6MlRpZjdFeTN5Z1Joak1aWTNKTEtEKytlL2JHS3hqT1Fzb05xaWk2UWZDK0s3CkpHSzdTcjVCSFAxVWxHM2FiNXVoMlN6QUhBMFJ1QUM2OG95aTdxOXlMV0JUY2FDUklpVjFOSzZjUGdWUDZmcGoKd0cvNDJkTWFkd1VVcHR5UnFXcWhBb0lCQVFEb0lBYlhSY1hmdDZKWkxxV3lDbnJMQ0ZkdjZrNVNEQ3d6b0VwbwpvOTcwVEE3V3ZzUk01STg3S3F4UWQrd1BVREt4dDlySG9wcDFXUzZmVnJiRG9ubzdLQVBWbXVUTVExSWhabkZQCnBNYWlyNFVMeHRZbnBWM01YOXprYTFsSTcyZ2NPSitpWk4xZktQRllUWHZQUjBtRWxreUpnYXV3Y2lzb2NpaUsKdWlUWEZvT1RwQ3N3YmkwVVozcFBtTG14ZmQrNG9WaVk2SENZMlZ1SVNkMEhLWUMwVGhVYWUxbGFiR1VDSk9xTQpYQjBJdUlRMURoems4VjJHZDdDZ3lhL0k3cDcxNk1yY0sxajIwVmJLTnU5ZkJPNm02NGl0eFpaQzZsb0RvTWFuCjZ0TTYwcm5HVjNqanFTQ0dSRzROaXpaa29JL0tyRkF1eGYvVXZaMG4vTksra1U5akFvSUJBUURCZ3FyalVsUU0Kb0xGUlRDZklSSmV1bU5sZFRFQ21DVC9LWlRxZUlQL1ZKTFNBa0FQOFZuNUdHVnE1MmwvbENFaTFFWDU0ejBybQpSaUh5dndkOU53MWlwZ1FZdHZnRTk2ZEdocUhJZkNmR21Uc0NmUDc0ZXZ4c3h6Z1pBcHRNb0VMcnVQcEFyU2pVCkxnZjhLSkFiNVVEaWU2S0liNVdWU1piYWpBTTd2M2dKeEdJbVYyZlFTZFVVeU1lVHEwTWRDMXgydDh2amUwNWIKOEhPMmV0TW5NRnJaREUwU3hXT1RSRTVwV0swMDkxd0l0WnBnYzZ2Q0NJMEJPMzlqVHlWeU1ac1p3U09sUjNLaApQb1FYRVF0c2tCYS9uQTBZeUFhcHhYSCtibWZpZnUwWjNuamF6bFJXdTR5TnBBM2hMM3NEWGxaSHlPakRhK3pQCnowR24yZDV0L2tQdEFvSUJBSHpVbkZrd29KVUxBRGZOcWpYeEJOQWpFRUtUVXNNMDRLQnkxeEVtNzBPWmszRlEKN2VnY0VoclRmQTlhTG95ZHFHV0NaaGx1REhxSEYxZUJIcEJlMURUejgvdnZiSk9jc0pKZHNSb1Bsdkx1U1RKbwpIOHI2VjFNTlNwRmNXWXVyaytWNVhmL0xGbkdTWnhnQnMwOXBHdFErcjdKVEZhMngrQnVzS0xsU0dYWENHY2hRClJSbXFabnZPbWl3c0NkQzF6SlpSem4rTW9PRFNJek5MNVoxd2FGS09teksrbXZMUjBCQXpJaCtSZWR1eXZ3WjUKTEhqQ2hIVkg4S2pIVGMxVTVnK0F2WGRocUZvemdlVUZYZjFQZmJndWVqWlpSOUY4amlQZFZuZi9CTkZoZVo1OApjL3FhZlc4M1phZks4ZGx6cjJCakFrdmxGd3VsWE5xZ1VBVkR4OWtDZ2dFQU83Y1hCUTlpNElLMk5XQks1b0pFClRKemVkdXdSQnl2VGc2RzVkUks1NEF4enB6aktBaFN1NHZMd0RHcFhMVlpoR1g5TWgvdHdJWitDMm1ZWTZZc1QKbGwyazVmdVFqZmZlcHVUbEIvbElUUUQ4Tk1oZDVsQU5sWVBreTlNQ0dhTmJBMk1SMXVPWXRlRitsVkh2SnF5WQpXVXZOM0V5UzNIN1pEcGdtWjBtdXdWVFk5UHdFRFVLN2ZxNTI2QnJ4bXdUbWc3dzBMdjdlTDRFRU5FdXkzV1VPCm8rd24zS01ORjJUOHpZV1A3Y2hubmtoc1cxZFdxWW41K1dkaTZFS0VTN2tESSs5MkVJcjcxTVoxL0toRjNqcVkKeW9oZGdrZzN4aXdvQVZ3UXN0UjRWb05ReURUajBlQU9mNmNnb1YwRm1RU0RtNk5rTU9vZEtnUExQd0Q4b3ZUVQpBUUtDQVFFQWxLNkp6Nk0vbVI4SU1ITHNXbHJlYjRRVVF3MzdWT2ZReVd3MmdpNHIrQTJ5UHFRTVhKc1dYNTh5CjRPNWU4RXV3cWo4Y1BGcUNkZHlWKytpN21aTGFsem1vRVpQU25vdFM0ZU5aQWV2cnZERVhPKzkzaURhWkM5MysKbUlyYnl0dHdEZDNmRThBWWRJQWtUL1pNTG44TXR5blFsRjlaVXpWVU5KQ01SVHhqNkdwTE9wR2xuQ01rcy9LOQp3c2NsOGlIUGNINmFTOGZteTkxOEFacFpJNGp3ZDFYdE5tOW8wWTlFYTREVTlIWDkyakdqZWxERTZlaDFSNHBsCkZKc29zNVdKdWY0M01pVHRyTzVUQjNRY2VDYWRkVWtUNE5WN2lrTTNRNld2TWl0MWRpZGV4VmtXRFF6eVk1MXMKR2hBZ0d0dmZMK0EwVTloMXk1Z1VaT0luNGZZRHlBPT0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQo=</prv>
+  </cert>
+  <ppps>
+    <ppp/>
+  </ppps>
+  <crl/>
+  <staticroutes/>
+</opnsense>
