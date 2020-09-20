@@ -6,7 +6,7 @@
             `--. \ |    |    /  | | |  __/  `--. \
            /\__/ / \__/\| |\ \ _| |_| |    /\__/ /
            \____/ \____/\_| \_|\___/\_|    \____/ 
-            ..I make to lose time instead of study.
+            ..I create to waste time.
            
            
 @Author Nicola Bottura
